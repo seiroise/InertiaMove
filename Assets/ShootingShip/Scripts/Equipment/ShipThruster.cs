@@ -9,24 +9,22 @@ namespace ShootingShip.Equipment {
 	/// </summary>
 	public class ShipThruster : ShipEquipment {
 
-		[Header("推進")]
+		[Header("加速")]
 		[SerializeField, Range(0.01f, 100f)]
-		private float thrust = 10f;			//推力
-		[SerializeField]
-		private AnimationCurve steeringEfficiency = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);	//旋回時の出力効率
+		private float accel = 10f;
+
+		[Header("減速")]
+		[SerializeField, Range(0.01f, 10f)]
+		private float deccel = 2f;
+
+		[Header("温度")]
+		[SerializeField, Range(0f, 10f)]
+		private float warmness = 4f;
+		[SerializeField, Range(0f, 10f)]
+		private float coolness = 4f;
+		private float temp = 0f;			//温度
+		private const float MAX_TEMP = 10f;	//最大温度
 		private float efficiency = 1f;		//効率(0~1)
-		private bool isThrust;
-
-		[Header("溜め")]
-		[SerializeField, Range(0.01f, 1f)]
-		private float chargeThreshold = 0.2f;
-		private float charge;
-		[SerializeField, Range(1f, 2000f)]
-		private float chargeBoost = 100f;
-
-		[Header("旋回")]
-		[SerializeField, Range(1f, 10f)]
-		private float steering = 1f;
 
 		[Header("アニメーション")]
 		[SerializeField]
@@ -39,20 +37,16 @@ namespace ShootingShip.Equipment {
 		private Gradient burnerColor;
 		[SerializeField]
 		private ParticleSystem thrustEffect;
-		[SerializeField, Range(0f, 10f)]
-		private float warmness = 4f;
-		[SerializeField, Range(0f, 10f)]
-		private float coolness = 4f;
-		private float temperature = 0f;
-		private float maxTemperature = 10f;
 
+		private bool isThrust;
 		private Rigidbody2D rBody2d;	//重心剛体
-		private Vector2 centerDis;		//重心までの距離
+		private Vector2 addVelocity;	//加速度
 
 		#region UnityEvent
 
 		private void FixedUpdate() {
 			Combust();
+			Thrust();
 		}
 
 		#endregion
@@ -64,7 +58,7 @@ namespace ShootingShip.Equipment {
 		/// </summary>
 		public override void InitCom(Structure.ShipStructure structure) {
 			base.InitCom(structure);
-			charge = 0f;
+
 		}
 
 		/// <summary>
@@ -94,50 +88,50 @@ namespace ShootingShip.Equipment {
 		/// 燃焼
 		/// </summary>
 		private void Combust() {
-			if (!isThrust) return;
-			float delta = Mathf.Clamp(Mathf.DeltaAngle(transform.eulerAngles.z, rBody2d.transform.eulerAngles.z), -90f, 90f);
-			float sEfficiency = steeringEfficiency.Evaluate((1f - Mathf.Abs(delta) / 90f));
-			Charge(sEfficiency);
-			//加速度
-			Vector2 velocity = -transform.right * thrust * efficiency;
-			float vMag = velocity.magnitude;
-			//剛体の加速と回転
-			if (rBody2d) {
-				//角速度
-				float angulerVelocity = (vMag * delta * 0.1f * steering) - (rBody2d.angularVelocity * 0.2f * steering);
-				rBody2d.angularVelocity += angulerVelocity * Time.deltaTime;
-				//速度
-				rBody2d.velocity += -velocity * Time.deltaTime * sEfficiency;
+			//燃焼
+			if (isThrust) {
+				if (temp < MAX_TEMP) {
+					temp += warmness * Time.deltaTime;
+					if (temp >= MAX_TEMP) {
+						temp = MAX_TEMP;
+					}
+				}
+			} else {
+				if (temp > 0f) {
+					temp -= coolness * Time.deltaTime;
+					if (temp <= 0f) {
+						temp = 0f;
+					}
+				}
 			}
-			//エフェクト生成
-			if (thrustEffect) {
+			efficiency = temp / MAX_TEMP;
+		}
+
+		/// <summary>
+		/// 推進
+		/// </summary>
+		private void Thrust() {
+			//加減速
+			if (isThrust) {
+				if (rBody2d && efficiency > 0f) {
+					addVelocity = transform.right * accel * (2f - efficiency);
+					rBody2d.velocity += addVelocity * Time.deltaTime;
+
+				}
+			} else {
+				if (rBody2d && efficiency > 0f) {
+					rBody2d.velocity -= Vector2.Lerp(rBody2d.velocity, Vector2.zero, deccel) * Time.deltaTime;
+				}
+			}
+
+			if (thrustEffect && efficiency > 0f) {
 				thrustEffect.Emit(
 					position: thrustEffect.transform.position,
-					velocity: velocity * 0.4f,
-					size: (efficiency + 1.5f - sEfficiency) * 2f,
-					lifetime: UnityEngine.Random.Range(efficiency, efficiency + sEfficiency) * 0.4f,
-					color: burnerColor.Evaluate(sEfficiency));
+					velocity: -addVelocity * 0.4f,
+					size: efficiency + 0.5f,
+					lifetime: UnityEngine.Random.Range(efficiency, efficiency + 1f) * 0.4f,
+					color: burnerColor.Evaluate(efficiency));
 			}
-		}
-
-		/// <summary>
-		/// チャージ
-		/// </summary>
-		private void Charge(float sEfficiency) {
-			if(sEfficiency < chargeThreshold) {
-				charge += sEfficiency * 10f * Time.deltaTime;
-				if(charge > 1f) charge = 1f;
-			} else {
-				charge -= sEfficiency * 20f * Time.deltaTime;
-				if(charge < 0f) charge = 0f;
-			}
-		}
-
-		/// <summary>
-		/// チャージブースト
-		/// </summary>
-		public void ChargeBoost() {
-			rBody2d.AddForce(rBody2d.transform.right);
 		}
 
 		/// <summary>

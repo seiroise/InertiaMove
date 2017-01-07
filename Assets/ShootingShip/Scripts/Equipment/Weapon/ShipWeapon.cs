@@ -12,10 +12,21 @@ namespace ShootingShip.Equipment {
 	/// </summary>
 	public class ShipWeapon : ShipEquipment {
 
-		[Header("攻撃")]
-		[SerializeField, Range(0.01f, 60f)]
-		private float interval = 0.3f;
-		private float tInterval;
+		[Header("パラメータ")]
+		[SerializeField, Range(0, 300)]
+		private int baseDamage = 100;
+		public int BaseDamager { get { return baseDamage; } }
+		[SerializeField, Range(0.01f, 20f)]
+		private float baseInterval = 1f;
+		public float BaseInterval { get { return baseInterval; } }
+		[SerializeField, Range(1f, 1000f)]
+		private float baseShotRange = 100f;
+		public float BaseShotRange { get { return baseShotRange; } }
+		[SerializeField, Range(1f, 100f)]
+		private float baseSpeed = 10f;
+		public float BaseSpeed { get { return baseSpeed; } }
+
+		[Header("弾")]
 		[SerializeField]
 		private ShootingBullet bullet;
 		public ShootingBullet Bullet { get { return bullet; } }
@@ -31,6 +42,7 @@ namespace ShootingShip.Equipment {
 		[SerializeField]
 		private ShipWeaponCom[] coms;
 
+		private float tInterval;
 		private bool isAttacked = false;
 
 		#region UnityEvent
@@ -63,7 +75,7 @@ namespace ShootingShip.Equipment {
 		/// </summary>
 		private void Reload() {
 			tInterval += Time.deltaTime;
-			if(tInterval > interval) {
+			if(tInterval > baseInterval) {
 				Fire();
 				tInterval = 0f;
 			}

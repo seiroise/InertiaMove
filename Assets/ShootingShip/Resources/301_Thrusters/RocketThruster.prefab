@@ -112,49 +112,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 909dbf45b792adb45887bc302aaa1d4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 14
-  steeringEfficiency:
-    serializedVersion: 2
-    m_Curve:
-    - time: -0.0013738871
-      value: 0.6487782
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 0.6438651
-      value: 0.7744789
-      inSlope: 0.51423234
-      outSlope: 0.51423234
-      tangentMode: 0
-    - time: 1
-      value: 1
-      inSlope: 0.0074234866
-      outSlope: 0.0074234866
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  chargeThreshold: 0.2
-  chargeBoost: 100
-  steering: 5.5
+  accel: 15
+  deccel: 1
+  warmness: 4
+  coolness: 8
   animator: {fileID: 0}
   thrustAnim: 
   burnerColor:
     key0:
       serializedVersion: 2
-      rgba: 4294967295
+      rgba: 540246478
     key1:
       serializedVersion: 2
-      rgba: 4290949770
+      rgba: 4282340019
     key2:
       serializedVersion: 2
-      rgba: 4296667
+      rgba: 4290948473
     key3:
       serializedVersion: 2
-      rgba: 3375566
+      rgba: 4290948473
     key4:
       serializedVersion: 2
-      rgba: 4149939
+      rgba: 12758393
     key5:
       serializedVersion: 2
       rgba: 12758393
@@ -164,27 +143,25 @@ MonoBehaviour:
     key7:
       serializedVersion: 2
       rgba: 0
-    ctime0: 0
-    ctime1: 2120
-    ctime2: 6554
-    ctime3: 12336
-    ctime4: 25443
+    ctime0: 7517
+    ctime1: 25443
+    ctime2: 65535
+    ctime3: 65535
+    ctime4: 65535
     ctime5: 65535
     ctime6: 65535
     ctime7: 0
     atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
+    atime1: 3855
+    atime2: 32960
+    atime3: 65535
     atime4: 0
     atime5: 0
     atime6: 0
     atime7: 0
-    m_NumColorKeys: 6
-    m_NumAlphaKeys: 2
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 4
   thrustEffect: {fileID: 198000010970186126}
-  warmness: 4
-  coolness: 4
 --- !u!198 &198000010970186126
 ParticleSystem:
   m_ObjectHideFlags: 1

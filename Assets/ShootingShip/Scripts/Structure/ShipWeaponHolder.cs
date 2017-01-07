@@ -16,8 +16,15 @@ namespace ShootingShip.Structure {
 		/// 目標との角度の設定
 		/// </summary>
 		public void SetTargetAngle(Transform target) {
+			SetTargetAngle(target.position);
+		}
+
+		/// <summary>
+		/// 目標との角度の設定
+		/// </summary>
+		public void SetTargetAngle(Vector3 wPosition) {
 			if (axis) {
-				Vector3 d = target.position - transform.position;
+				Vector3 d = wPosition - transform.position;
 				axis.SetAngle(Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg);
 			}
 		}

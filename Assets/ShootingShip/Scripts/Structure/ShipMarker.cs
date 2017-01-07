@@ -8,19 +8,19 @@ namespace ShootingShip.Structure {
 	/// <summary>
 	/// 機体のマーカー
 	/// </summary>
-	[RequireComponent(typeof(DetectableObject2D))]
+	[RequireComponent(typeof(RigidbodyDetector2D))]
 	public class ShipMarker : ShipCom {
 
 		[SerializeField]
 		private SpriteRenderer marker;
 		public SpriteRenderer Marker { get { return marker; } }
 
-		[SerializeField]
-		private ObjectDetector2D objDetector;
-		public ObjectDetector2D ObjDetector { get { return objDetector; } }
+		private RigidbodyDetector2D detector;
+		public RigidbodyDetector2D Detector { get { return detector; } }
 
-		private DetectableObject2D detectableObj;
-		public DetectableObject2D DetectableObj { get { return detectableObj; } }
+		[SerializeField]
+		private DetectableRigidbody2D detectable;
+		public DetectableRigidbody2D Detectable { get { return detectable; } }
 		
 		#region VirtualFunction
 
@@ -30,7 +30,7 @@ namespace ShootingShip.Structure {
 		public override void InitCom(ShipStructure structure) {
 			base.InitCom(structure);
 			structure.Marker = this;
-			detectableObj = GetComponent<DetectableObject2D>();
+			detector = GetComponent<RigidbodyDetector2D>();
 		}
 
 		#endregion

@@ -6,15 +6,18 @@ using System.Collections.Generic;
 
 namespace ShootingUtility.ObjectDetector {
 
-	public class DetectedEvent : UnityEvent<ObjectDetector2D> { }
-
 	/// <summary>
 	/// 検出可能オブジェクト
 	/// </summary>
 	[RequireComponent(typeof(Collider2D))]
-	public class DetectableObject2D : MonoBehaviour {
+	public abstract class DetectableObject2D<T> : MonoBehaviour where T : Component {
 
-		protected HashSet<ObjectDetector2D> detectors;
+		public class DetectedEvent : UnityEvent<ObjectDetector2D<T>> { }
+
+		protected HashSet<ObjectDetector2D<T>> detectors;
+
+		protected T detectableObj;
+		public T DetectableObj { get { return detectableObj; } }
 
 		//コールバック
 		private DetectedEvent onDetected;	//検知された
@@ -25,21 +28,23 @@ namespace ShootingUtility.ObjectDetector {
 		#region UnityEvent
 
 		private void Awake() {
-			detectors = new HashSet<ObjectDetector2D>();
+			detectors = new HashSet<ObjectDetector2D<T>>();
+
+			detectableObj = GetComponent<T>();
 
 			onDetected = new DetectedEvent();
 			onReleased = new DetectedEvent();
 		}
 
 		private void OnTriggerEnter2D(Collider2D co) {
-			var detector = co.GetComponent<ObjectDetector2D>();
+			var detector = co.GetComponent<ObjectDetector2D<T>>();
 			if (detector) {
 				DetectDetector(detector);
 			}
 		}
 
 		private void OnTriggerExit2D(Collider2D co) {
-			var detector = co.GetComponent<ObjectDetector2D>();
+			var detector = co.GetComponent<ObjectDetector2D<T>>();
 			if (detector) {
 				ReleaseDetector(detector);
 			}
@@ -56,13 +61,12 @@ namespace ShootingUtility.ObjectDetector {
 		/// <summary>
 		/// detectorの検出
 		/// </summary>
-		public void DetectDetector(ObjectDetector2D detector) {
+		public void DetectDetector(ObjectDetector2D<T> detector) {
 			//包含確認
 			if (detectors.Contains(detector)) return;
 			detector.DetectObject(this);
 			//detector側も追加
 			detectors.Add(detector);
-
 			//コールバック
 			onDetected.Invoke(detector);
 		}
@@ -70,13 +74,12 @@ namespace ShootingUtility.ObjectDetector {
 		/// <summary>
 		/// detectorの解除
 		/// </summary>
-		public void ReleaseDetector(ObjectDetector2D detector) {
+		public void ReleaseDetector(ObjectDetector2D<T> detector) {
 			//包含確認
 			if (!detectors.Contains(detector)) return;
 			detector.ReleaseObject(this);
 			//detector側も解除
 			detectors.Remove(detector);
-
 			//コールバック
 			onReleased.Invoke(detector);
 		}

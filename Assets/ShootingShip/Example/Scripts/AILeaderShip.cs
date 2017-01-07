@@ -23,7 +23,7 @@ namespace ShootingShip.Example {
 		private ShipThrusterController thruster;
 		private ShipAttitudeController attitude;
 		private ShipMarker marker;
-		private ObjectDetector2D detector;
+		private RigidbodyDetector2D detector;
 
 		//ターゲッティング
 		private Transform trans;
@@ -65,7 +65,7 @@ namespace ShootingShip.Example {
 			attitude = structure.AttitudeController;
 			marker = structure.Marker;
 			if(marker) {
-				detector = marker.ObjDetector;
+				detector = marker.Detector;
 				detector.OnDetect.RemoveListener(OnDetect);
 				detector.OnDetect.AddListener(OnDetect);
 			}
@@ -84,7 +84,7 @@ namespace ShootingShip.Example {
 		private void Targeting() {
 			//武器の角度変更
 			if(weapon) {
-				weapon.SetTargetAngle(target);
+				weapon.SetTargetAngle(target.position);
 			}
 			//進む
 			if(attitude) {
@@ -102,7 +102,7 @@ namespace ShootingShip.Example {
 		/// <summary>
 		/// 他のオブジェクトを検出
 		/// </summary>
-		private void OnDetect(DetectableObject2D obj) {
+		private void OnDetect(DetectableObject2D<Rigidbody2D> obj) {
 			//フィルター
 			if(obj.tag.Equals(targetTag)) {
 				thruster.ThrusterAwake();
@@ -114,7 +114,7 @@ namespace ShootingShip.Example {
 		/// <summary>
 		/// 検出オブジェクトを解放
 		/// </summary>
-		private void OnRelease(DetectableObject2D obj) {
+		private void OnRelease(DetectableObject2D<Rigidbody2D> obj) {
 			if(obj.transform == target) {
 				thruster.ThrusterStandby();
 				target = null;

@@ -25,24 +25,25 @@ namespace ShootingShip.Example {
 		private ShipThrusterController thruster;
 		private ShipAttitudeController attitude;
 		private ShipMarker marker;
-		private ObjectDetector2D detector;
 
 		//値の表示
 		private AttackableObject2D attackable;
 		private FloatIndicator indicator;
 
 		//ターゲッティング
-		private Transform trans;
+		private ObjectDetector2D<Rigidbody2D> detector;
+		private Transform targetTrans;
+		private DetectableObject2D<Rigidbody2D> detected;
 
 		#region UnityEvent
 
 		private void Start() {
 			tag = "Player";
-			trans = transform;
+			targetTrans = transform;
 			StageManager sManager = StageManager.Instance;
 			if (sManager) {
-				sManager.PlayerTracker.Target = trans;
-				sManager.BgPlacer.Target = trans;
+				sManager.PlayerTracker.Target = targetTrans;
+				sManager.BgPlacer.Target = targetTrans;
 				swipe = sManager.Swipe;
 				if (swipe) {
 					swipe.OnSwiping.RemoveListener(OnSwiping);
@@ -52,16 +53,11 @@ namespace ShootingShip.Example {
 					swipe.OnEndedSwipe.RemoveListener(OnEndedSwipe);
 					swipe.OnEndedSwipe.AddListener(OnEndedSwipe);
 				}
-				flick = sManager.Flick;
-				if(flick) {
-					flick.OnFlick.RemoveListener(OnFlick);
-					flick.OnFlick.AddListener(OnFlick);
-				}
 			}
 		}
 
 		private void Update() {
-			SetTargetAngle();
+			Targeting();
 		}
 
 		#endregion
@@ -73,14 +69,14 @@ namespace ShootingShip.Example {
 		/// </summary>
 		public void SetStructure(ShipStructure structure) {
 			weapon = structure.WeaponController;
-			if(weapon) {
+			if (weapon) {
 				weapon.SetBulletExclusionTag("Player");
 			}
 			thruster = structure.ThrusterController;
 			attitude = structure.AttitudeController;
 			marker = structure.Marker;
 			if (marker) {
-				detector = marker.ObjDetector;
+				detector = marker.Detector;
 				detector.OnDetect.RemoveListener(OnDetect);
 				detector.OnDetect.AddListener(OnDetect);
 				detector.OnRelease.RemoveListener(OnRelease);
@@ -96,21 +92,13 @@ namespace ShootingShip.Example {
 		}
 
 		/// <summary>
-		/// 対象との角度の調整
+		/// ターゲッティング
 		/// </summary>
-		private void SetTargetAngle() {
-			if (detector && detector.GetDetectCount() > 0) {
-				//距離計算
-				float d1 = 0f, d2 = float.MaxValue;
-				DetectableObject2D near = null;
-				foreach (var obj in detector.Objects) {
-					d1 = Vector2.Distance(trans.position, obj.transform.position);
-					if (d1 < d2) {
-						d2 = d1;
-						near = obj;
-					}
+		private void Targeting() {
+			if (detector) {
+				if(detected = detector.GetNearObject()) {
+					weapon.SetTarget(detected.transform);
 				}
-				weapon.SetTargetAngle(near.transform);
 			}
 		}
 
@@ -147,17 +135,12 @@ namespace ShootingShip.Example {
 			}
 		}
 
-		private void OnFlick(FlickEventData ev) {
-			if(thruster) {
-			}
-		}
-
 		/// <summary>
 		/// 他のオブジェクトを検出
 		/// </summary>
-		private void OnDetect(DetectableObject2D obj) {
+		private void OnDetect(DetectableObject2D<Rigidbody2D> obj) {
 			//武器を起動
-			if (weapon) {
+			if (weapon && detector.GetDetectCount() > 0) {
 				weapon.WeaponAwake();
 			}
 		}
@@ -165,13 +148,10 @@ namespace ShootingShip.Example {
 		/// <summary>
 		/// 他のオブジェクトを解放
 		/// </summary>
-		private void OnRelease(DetectableObject2D obj) {
+		private void OnRelease(DetectableObject2D<Rigidbody2D> obj) {
 			//武器を待機
-			if (weapon) {
-				weapon.SetAngle(0f);
-				if (detector.GetDetectCount() < 1) {
-					weapon.WeaponStandby();
-				}
+			if (weapon && detector.GetDetectCount() <= 0) {
+				weapon.WeaponStandby();
 			}
 		}
 
@@ -187,7 +167,7 @@ namespace ShootingShip.Example {
 				var sManager = StageManager.Instance;
 				if (sManager && sManager.IndicatorPool) {
 					indicator = sManager.IndicatorPool.GetObject();
-					indicator.Tracker.Target = trans;
+					indicator.Tracker.Target = targetTrans;
 					indicator.SetRatio(attackable.HP, attackable.NowHP);
 				}
 			}

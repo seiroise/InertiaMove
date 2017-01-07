@@ -50,11 +50,8 @@ namespace ShootingShip.Structure {
 		/// 指定した方向に進む
 		/// </summary>
 		public void Go(float angle) {
-			if (!rotationRigidbody && shipAxis) {
+			if (shipAxis) {
 				shipAxis.SetAngle(angle);
-			} else {
-				float delta = Mathf.DeltaAngle(transform.eulerAngles.z, angle);
-				Rotation(delta);
 			}
 		}
 
