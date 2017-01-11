@@ -110,7 +110,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a5afe9781120e441a529ccd7146392a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interval: 1
+  baseDamage: 100
+  baseInterval: 1
+  baseShotRange: 100
+  baseSpeed: 40
   bullet: {fileID: 114000010038123874, guid: d9617952daba04e419f8837455a209a1, type: 2}
   shotPos: {fileID: 4000013603068560}
   bulletExclusionTag: None

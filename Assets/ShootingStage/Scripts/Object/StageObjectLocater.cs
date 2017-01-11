@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using EditorUtility;
+using UnityEngine;
 using System.Collections.Generic;
 
 namespace ShootingStage.Object {
@@ -10,16 +11,16 @@ namespace ShootingStage.Object {
 
 		[SerializeField]
 		private StageObject[] stageObjects;
-		[SerializeField, Range(0, 20)]
-		private int locateNum = 5;
-		[SerializeField, Range(0f, 500f)]
-		private float locateDensity = 100f;
+		[SerializeField, MinMaxRange(0, 20)]
+		private MinMax locateNum;
+		[SerializeField, MinMaxRange(0, 500)]
+		private MinMax locateDensity;
 
 		#region UnityEvent
 
 		private void Start() {
 			//テスト配置
-			Locate(locateNum, locateDensity);
+			Locate(locateNum.randomInt, locateDensity.random);
 		}
 
 		#endregion
@@ -39,6 +40,8 @@ namespace ShootingStage.Object {
 				//取り敢えず親
 				obj.transform.SetParent(transform);
 				obj.transform.position = pos;
+				//取り敢えず初期化
+				obj.InitPoolable();
 			}
 		}
 

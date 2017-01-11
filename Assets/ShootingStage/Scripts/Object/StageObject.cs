@@ -5,13 +5,13 @@ using ShootingUtility.ObjectPool;
 namespace ShootingStage.Object {
 
 	/// <summary>
-	/// ステージ上のオブジェクトの元
+	/// ステージ上のオブジェクト
 	/// </summary>
-	public class StageObject : MonoBehaviour, IPoolable {
+	public abstract class StageObject : MonoBehaviour, IPoolable {
 
 		#region IPoolable
 
-		public void InitPoolable() {
+		public virtual void InitPoolable() {
 			
 		}
 

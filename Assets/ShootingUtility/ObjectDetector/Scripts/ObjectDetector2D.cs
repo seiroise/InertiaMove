@@ -112,6 +112,14 @@ namespace ShootingUtility.ObjectDetector {
 			}
 		}
 
+		/// <summary>
+		/// 待機状態へ
+		/// </summary>
+		public void Standby() {
+			detectionArea.enabled = false;
+			ReleaseAllObject();
+		}
+
 		#endregion
 
 	}

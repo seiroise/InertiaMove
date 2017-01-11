@@ -327,7 +327,7 @@ Transform:
   m_GameObject: {fileID: 1000014147195946}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 20, y: 20, z: 1}
+  m_LocalScale: {x: 100, y: 100, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000010043441306}
@@ -503,7 +503,6 @@ MonoBehaviour:
   - {fileID: 114000011657315980}
   - {fileID: 114000012020119294}
   - {fileID: 114000010695537152}
-  attackable: {fileID: 114000013186384032}
 --- !u!114 &114000010570332716
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -800,7 +799,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300010, guid: 6e3a9603dcb3f184b84cb212a65c7994, type: 3}
   m_Color: {r: 0.44099998, g: 0.83636105, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

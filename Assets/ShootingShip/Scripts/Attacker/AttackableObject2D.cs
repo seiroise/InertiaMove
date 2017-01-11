@@ -6,6 +6,7 @@ using System.Collections.Generic;
 namespace ShootingShip.Attacker {
 
 	public class AttackedEvent : UnityEvent<ObjectAttacker2D> { }
+	public class DiedEvent : UnityEvent<AttackableObject2D, ObjectAttacker2D> { }
 
 	/// <summary>
 	/// 攻撃可能オブジェクト
@@ -19,17 +20,19 @@ namespace ShootingShip.Attacker {
 		private int nowHP;
 		public int NowHP { get { return nowHP; } set { nowHP = value; } }
 
+		public float hpRatio { get { return (float)nowHP / hp; } }
+
 		//コールバック
 		private AttackedEvent onAttacked;	//攻撃された
 		public AttackedEvent OnAttacked { get { return onAttacked; } }
-		private AttackedEvent onDied;		//倒された
-		public AttackedEvent OnDied { get { return onDied; } }
+		private DiedEvent onDied;		//倒された
+		public DiedEvent OnDied { get { return onDied; } }
 
 		#region UnityEvent
 
 		private void Awake() {
 			onAttacked = new AttackedEvent();
-			onDied = new AttackedEvent();
+			onDied = new DiedEvent();
 			nowHP = hp;
 		}
 
@@ -44,7 +47,7 @@ namespace ShootingShip.Attacker {
 			nowHP -= attacker.Damage;
 			if (nowHP <= 0) {
 				nowHP = 0;
-				onDied.Invoke(attacker);
+				onDied.Invoke(this, attacker);
 			} else {
 				onAttacked.Invoke(attacker);
 			}

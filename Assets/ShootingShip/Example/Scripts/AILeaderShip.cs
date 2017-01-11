@@ -143,8 +143,8 @@ namespace ShootingShip.Example {
 		/// <summary>
 		/// 倒された
 		/// </summary>
-		private void OnDied(ObjectAttacker2D attacker) {
-			indicator.gameObject.SetActive(false);
+		private void OnDied(AttackableObject2D attackable, ObjectAttacker2D attacker) {
+			if(indicator) indicator.gameObject.SetActive(false);
 			Destroy(gameObject);
 		}
 

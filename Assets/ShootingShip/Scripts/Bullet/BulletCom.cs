@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections.Generic;
+using ShootingShip.Equipment;
 
 namespace ShootingShip.Bullet {
 
@@ -11,14 +12,16 @@ namespace ShootingShip.Bullet {
 	public abstract class BulletCom : MonoBehaviour {
 
 		protected ShootingBullet owner;
+		protected ShipWeapon weapon;
 
 		#region VirtualFunction
 
 		/// <summary>
 		/// 初期化
 		/// </summary>
-		public virtual void InitCom(ShootingBullet owner) {
+		public virtual void InitCom(ShootingBullet owner, ShipWeapon weapon) {
 			this.owner = owner;
+			this.weapon = weapon;
 		}
 
 		/// <summary>
