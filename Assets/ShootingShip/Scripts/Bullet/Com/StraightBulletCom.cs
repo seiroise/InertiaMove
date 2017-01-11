@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections.Generic;
+using ShootingShip.Equipment;
 
 namespace ShootingShip.Bullet {
 
@@ -13,6 +14,11 @@ namespace ShootingShip.Bullet {
 		private float speed = 10f;
 
 		#region VirtualFunction
+
+		public override void InitCom(ShootingBullet owner, ShipWeapon weapon) {
+			base.InitCom(owner, weapon);
+			speed = weapon.BaseSpeed;
+		}
 
 		/// <summary>
 		/// 更新

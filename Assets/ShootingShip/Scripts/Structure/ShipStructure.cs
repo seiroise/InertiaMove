@@ -8,16 +8,15 @@ namespace ShootingShip.Structure {
 	/// <summary>
 	/// 機体構造
 	/// </summary>
-	[RequireComponent(typeof(Rigidbody2D))]
+	[RequireComponent(typeof(Rigidbody2D), typeof(AttackableObject2D))]
 	public class ShipStructure : ShipComManager<ShipCom> {
-
-		[SerializeField]
-		private AttackableObject2D attackable;
-		public AttackableObject2D Attackable { get { return attackable; } }
 
 		//コンポーネント群
 		private Rigidbody2D rBody2d;
 		public Rigidbody2D RBody2d { get { return rBody2d; } }
+
+		private AttackableObject2D attackable;
+		public AttackableObject2D Attackable { get { return attackable; } }
 
 		private ShipWeaponController weaponController;
 		public ShipWeaponController WeaponController { get { return weaponController; } set { weaponController = value; } }
@@ -39,6 +38,7 @@ namespace ShootingShip.Structure {
 		public override void InitCom(ShipStructure structure) {
 			base.InitCom(structure);
 			rBody2d = GetComponent<Rigidbody2D>();
+			attackable = GetComponent<AttackableObject2D>();
 		}
 
 		#endregion

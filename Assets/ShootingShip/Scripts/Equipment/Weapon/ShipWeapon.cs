@@ -13,7 +13,7 @@ namespace ShootingShip.Equipment {
 	public class ShipWeapon : ShipEquipment {
 
 		[Header("パラメータ")]
-		[SerializeField, Range(0, 300)]
+		[SerializeField, Range(1, 2000)]
 		private int baseDamage = 100;
 		public int BaseDamager { get { return baseDamage; } }
 		[SerializeField, Range(0.01f, 20f)]
@@ -87,8 +87,10 @@ namespace ShootingShip.Equipment {
 		public void Fire() {
 			if(bulletPool == null) return;
 			ShootingBullet b = bulletPool.GetObject(shotPos.position);
+			b.InitBullet(this);
 			b.Attacker.ExclusionTag = bulletExclusionTag;
 			b.transform.eulerAngles = shotPos.eulerAngles;
+			b.Attacker.Damage = baseDamage;
 			FireComs(b);
 		}
 

@@ -31,7 +31,7 @@ namespace ShootingShip.Example {
 		private FloatIndicator indicator;
 
 		//ターゲッティング
-		private ObjectDetector2D<Rigidbody2D> detector;
+		private RigidbodyDetector2D detector;
 		private Transform targetTrans;
 		private DetectableObject2D<Rigidbody2D> detected;
 
@@ -97,7 +97,7 @@ namespace ShootingShip.Example {
 		private void Targeting() {
 			if (detector) {
 				if(detected = detector.GetNearObject()) {
-					weapon.SetTarget(detected.transform);
+					weapon.SetTarget(detected.DetectableObj);
 				}
 			}
 		}
@@ -176,7 +176,7 @@ namespace ShootingShip.Example {
 		/// <summary>
 		/// 倒された
 		/// </summary>
-		private void OnDied(ObjectAttacker2D attacker) {
+		private void OnDied(AttackableObject2D attackable, ObjectAttacker2D attacker) {
 			indicator.gameObject.SetActive(false);
 			Destroy(gameObject);
 		}

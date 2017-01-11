@@ -41,7 +41,7 @@ namespace ShootingShip.Stage {
 	/// <summary>
 	/// 島
 	/// </summary>
-	[RequireComponent(typeof(Collider2D), typeof(AttackableObject2D), typeof(DetectableObject2D<Rigidbody2D>))]
+	[RequireComponent(typeof(Collider2D), typeof(AttackableObject2D), typeof(DetectableRigidbody2D))]
 	public class Island : MonoBehaviour {
 
 		[SerializeField]
@@ -51,7 +51,7 @@ namespace ShootingShip.Stage {
 
 		private Collider2D collider2D;
 		private AttackableObject2D attackable;
-		private DetectableObject2D<Rigidbody2D> detectable;
+		private DetectableRigidbody2D detectable;
 		private FloatIndicator indicator;
 
 		#region UnityEvent
@@ -65,7 +65,7 @@ namespace ShootingShip.Stage {
 				attackable.OnDied.RemoveListener(OnDied);
 				attackable.OnDied.AddListener(OnDied);
 			}
-			detectable = GetComponent<DetectableObject2D<Rigidbody2D>>();
+			detectable = GetComponent<DetectableRigidbody2D>();
 		}
 
 		private void Update() {
@@ -117,7 +117,7 @@ namespace ShootingShip.Stage {
 		/// <summary>
 		/// 倒された
 		/// </summary>
-		private void OnDied(ObjectAttacker2D attacker) {
+		private void OnDied(AttackableObject2D attackable, ObjectAttacker2D attacker) {
 			attackable.enabled = false;
 			collider2D.enabled = false;
 			if (detectable) {

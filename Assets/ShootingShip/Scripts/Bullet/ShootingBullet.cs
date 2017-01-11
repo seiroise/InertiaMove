@@ -2,6 +2,7 @@
 using System.Collections;
 using ShootingUtility.ObjectPool;
 using ShootingShip.Attacker;
+using ShootingShip.Equipment;
 
 namespace ShootingShip.Bullet {
 
@@ -77,11 +78,19 @@ namespace ShootingShip.Bullet {
 		}
 
 		/// <summary>
+		/// 弾の初期化(InitPoolableの後に呼ぶこと)
+		/// </summary>
+		public void InitBullet(ShipWeapon weapon) {
+			InitComs(weapon);
+			AwakeComs();
+		}
+
+		/// <summary>
 		/// 部品の初期化
 		/// </summary>
-		private void InitComs() {
+		private void InitComs(ShipWeapon weapon) {
 			foreach(var c in coms) {
-				c.InitCom(this);
+				c.InitCom(this, weapon);
 			}
 		}
 
@@ -122,9 +131,10 @@ namespace ShootingShip.Bullet {
 		public void InitPoolable() {
 			tLifeTime = 0f;
 			isLived = true;
-			if(attacker) attacker.OnAttack.AddListener(OnAttack);
-			InitComs();
-			AwakeComs();
+			if (attacker) {
+				attacker.OnAttack.RemoveListener(OnAttack);
+				attacker.OnAttack.AddListener(OnAttack);
+			}
 		}
 
 		#endregion

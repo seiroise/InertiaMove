@@ -11,9 +11,7 @@ namespace ShootingShip.Structure {
 
 		//ターゲッティング
 		private Transform trans;
-		private Transform targetTrans;		//目標
-		private Vector3 prevPosition;		//前回座標
-		private Vector3 targetDeviation;	//目標偏差
+		private Rigidbody2D targetRigid;	//目標
 
 		#region UnityEvent
 
@@ -42,15 +40,14 @@ namespace ShootingShip.Structure {
 		/// ターゲッティング(偏差)
 		/// </summary>
 		private void Targeting() {
-			if (!targetTrans) return;
-			Vector3 tPos = targetTrans.position;
-			//目標との距離を計算
+			if (!targetRigid) return;
+			Vector3 tPos = targetRigid.position;
+			Vector3 delta = targetRigid.velocity;
 			float distance = (tPos - trans.position).magnitude;
-			//目標の移動量を計算
-			targetDeviation = tPos - prevPosition;
-			prevPosition = tPos;
-			//目標座標を設定
-			SetTargetAngle(tPos + targetDeviation * distance * 100f);
+			//目標角度の設定
+			foreach (var c in coms) {
+				c.SetTargetAngle(tPos + delta * (distance / c.Equipment.BaseSpeed));
+			}
 		}
 
 		/// <summary>
@@ -74,12 +71,9 @@ namespace ShootingShip.Structure {
 		/// <summary>
 		/// 目標の設定
 		/// </summary>
-		public void SetTarget(Transform target) {
-			if (targetTrans != target) {
-				if (target) {
-					prevPosition = target.transform.position;
-				}
-				targetTrans = target;
+		public void SetTarget(Rigidbody2D target) {
+			if (targetRigid != target) {
+				targetRigid = target;
 			}
 		}
 

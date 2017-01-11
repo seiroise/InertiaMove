@@ -14,7 +14,9 @@ namespace ShootingUtility.ObjectDetector {
 
 		public class DetectedEvent : UnityEvent<ObjectDetector2D<T>> { }
 
-		protected HashSet<ObjectDetector2D<T>> detectors;
+		//検出関連
+		private Collider2D detectableArea;
+		private HashSet<ObjectDetector2D<T>> detectors;
 
 		protected T detectableObj;
 		public T DetectableObj { get { return detectableObj; } }
@@ -28,6 +30,8 @@ namespace ShootingUtility.ObjectDetector {
 		#region UnityEvent
 
 		private void Awake() {
+			
+			detectableArea = GetComponent<Collider2D>();
 			detectors = new HashSet<ObjectDetector2D<T>>();
 
 			detectableObj = GetComponent<T>();
@@ -92,6 +96,14 @@ namespace ShootingUtility.ObjectDetector {
 				ReleaseDetector(d);
 			}
 			detectors.Clear();
+		}
+
+		/// <summary>
+		/// 待機状態へ
+		/// </summary>
+		public void Standby() {
+			detectableArea.enabled = false;
+			ReleaseAllDetector();
 		}
 
 		#endregion

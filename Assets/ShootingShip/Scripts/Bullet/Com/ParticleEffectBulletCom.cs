@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using ShootingUtility.Particle;
 using ShootingShip.Manager;
+using ShootingShip.Equipment;
 
 namespace ShootingShip.Bullet {
 
@@ -17,8 +18,8 @@ namespace ShootingShip.Bullet {
 
 		#region VirtuaFunction
 
-		public override void InitCom(ShootingBullet owner) {
-			base.InitCom(owner);
+		public override void InitCom(ShootingBullet owner, ShipWeapon weapon) {
+			base.InitCom(owner, weapon);
 			if (destroyEffectPool == null) {
 				var pool = StageManager.Instance.ParticlePool;
 				destroyEffectPool = pool.RegistObject(destroyEffect);
