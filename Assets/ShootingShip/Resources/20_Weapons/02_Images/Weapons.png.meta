@@ -1,0 +1,143 @@
+fileFormatVersion: 2
+guid: 6ac80c71faf081348b08beeb27a2fbf8
+timeCreated: 1483756969
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Ship_0
+    21300002: Ship_1
+    21300004: Ship_2
+    21300006: Ship_3
+    21300008: Ship_4
+    21300010: Ship_5
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Ship_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 959
+        width: 645
+        height: 486
+      alignment: 9
+      pivot: {x: 0.35135138, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ship_1
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 1220
+        width: 465
+        height: 165
+      alignment: 9
+      pivot: {x: 0.2169255, y: 0.60833704}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ship_2
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 980
+        width: 326
+        height: 205
+      alignment: 9
+      pivot: {x: 0.2058946, y: 0.32560322}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ship_3
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 700
+        width: 706
+        height: 225
+      alignment: 9
+      pivot: {x: 0.24910602, y: 0.47110975}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ship_4
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 359
+        width: 1046
+        height: 306
+      alignment: 9
+      pivot: {x: 0.21103206, y: 0.44689363}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ship_5
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 0
+        width: 1466
+        height: 315
+      alignment: 9
+      pivot: {x: 0.23396075, y: 0.5361123}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

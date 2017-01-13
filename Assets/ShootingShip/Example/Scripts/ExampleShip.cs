@@ -8,6 +8,7 @@ using ShootingUtility.ObjectDetector;
 using ShootingShip.Manager;
 using ShootingShip.Attacker;
 using ShootingUtility.ValueIndicator;
+using ShootingUI.Manager;
 
 namespace ShootingShip.Example {
 
@@ -89,6 +90,8 @@ namespace ShootingShip.Example {
 				attackable.OnDied.RemoveListener(OnDied);
 				attackable.OnDied.AddListener(OnDied);
 			}
+			//UI
+			UIManager.Instance.ShipQuickBar.SetQuickBar(structure);
 		}
 
 		/// <summary>

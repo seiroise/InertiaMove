@@ -166,7 +166,9 @@ namespace ShootingStage.Island {
 			if (!isShowedRatioIndicator) return;
 			if (ratioIndicators == null) return;
 			for (int i = 0; i < ratioIndicators.Length; ++i) {
-				ratioIndicators[i].gameObject.SetActive(false);
+				if (ratioIndicators[i]) {
+					ratioIndicators[i].gameObject.SetActive(false);
+				}
 			}
 			isShowedRatioIndicator = false;
 		}

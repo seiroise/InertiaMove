@@ -11,7 +11,9 @@ namespace ShootingShip.DataObject {
 		[Header("Description")]
 		[SerializeField]
 		private Sprite descriptionImage;
+		public Sprite DescriptionImage { get { return descriptionImage; } }
 		[SerializeField]
-		private string name;
+		private string descriptionName;
+		public string DescriptionName { get { return descriptionName; } }
 	}
 }

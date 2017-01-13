@@ -43,6 +43,7 @@ namespace ShootingShip.Equipment {
 		private ShipWeaponCom[] coms;
 
 		private float tInterval;
+		public float IntervalRatio { get { return tInterval / baseInterval; } }
 		private bool isAttacked = false;
 
 		#region UnityEvent
