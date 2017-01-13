@@ -8,6 +8,7 @@ using ShootingUtility.InputDetector;
 using ShootingUtility.Lerp;
 using ShootingUtility.ValueIndicator;
 using ShootingUtility.Particle;
+using ShootingStage.Island;
 
 namespace ShootingShip.Manager {	
 
@@ -47,5 +48,9 @@ namespace ShootingShip.Manager {
 		[SerializeField]
 		private ParticlePoolDictionary particlePool;
 		public ParticlePoolDictionary ParticlePool { get { return particlePool; } }
+
+		//その他のパラメータ
+		[SerializeField]
+		private IslandParameterSeed islandParameterSeed;
 	}
 }

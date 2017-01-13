@@ -94,7 +94,7 @@ namespace ShootingStage.Island {
 	/// <summary>
 	/// ステージ上の島
 	/// </summary>
-	public class StageIsland : StageAttackableObject {
+	public class StageIsland : StageAttackableEntity {
 
 		[Header("プレイヤー")]
 		[SerializeField]
@@ -123,6 +123,57 @@ namespace ShootingStage.Island {
 			if (!isDied) {
 				UpdateLine();
 			}
+		}
+
+		#endregion
+
+		#region Parameter
+
+		/// <summary>
+		/// 島のパラメータ
+		/// </summary>
+		public void SetIslandParameter(IslandParameter parameter) {
+			//耐久力
+			SetDurable(parameter.Durable);
+		}
+
+		/// <summary>
+		/// 耐久力の設定
+		/// </summary>
+		private void SetDurable(int durable) {
+			//耐久力の設定
+			if(attackable) {
+				attackable.HP = 2000 + (600 * durable - 1);
+			}
+			//シールドの設定
+			if(durable > 15) {
+				//強化シールド
+
+			} else if(durable > 5){
+				//通常シールド
+
+			}
+		}
+
+		/// <summary>
+		/// 攻撃力の設定
+		/// </summary>
+		private void SetAttack(int attack) {
+			
+		}
+
+		/// <summary>
+		/// 生産力の設定
+		/// </summary>
+		private void SetProduce(int produce) {
+			
+		}
+
+		/// <summary>
+		/// 防衛力の設定
+		/// </summary>
+		private void SetDefence(int defence) {
+			
 		}
 
 		#endregion

@@ -24,6 +24,9 @@ namespace ShootingShip.Structure {
 		private ShipThrusterController thrusterController;
 		public ShipThrusterController ThrusterController { get { return thrusterController; } set { thrusterController = value; } }
 
+		private ShipSystemController systemController;
+		public ShipSystemController SystemController { get { return systemController; } set { systemController = value; } }
+
 		private ShipAttitudeController attitudeController;
 		public ShipAttitudeController AttitudeController { get { return attitudeController; } set { attitudeController = value; } }
 

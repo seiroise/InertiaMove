@@ -22,10 +22,13 @@ namespace ShootingShip.Attacker {
 
 		public float hpRatio { get { return (float)nowHP / hp; } }
 
+		private bool isDied;
+		public bool IsDied { get { return isDied; } }
+
 		//コールバック
-		private AttackedEvent onAttacked;	//攻撃された
+		private AttackedEvent onAttacked;   //攻撃された
 		public AttackedEvent OnAttacked { get { return onAttacked; } }
-		private DiedEvent onDied;		//倒された
+		private DiedEvent onDied;       //倒された
 		public DiedEvent OnDied { get { return onDied; } }
 
 		#region UnityEvent
@@ -44,13 +47,25 @@ namespace ShootingShip.Attacker {
 		/// 攻撃された
 		/// </summary>
 		public void Attacked(ObjectAttacker2D attacker) {
-			nowHP -= attacker.Damage;
-			if (nowHP <= 0) {
-				nowHP = 0;
-				onDied.Invoke(this, attacker);
-			} else {
-				onAttacked.Invoke(attacker);
+			if(!isDied) {
+				nowHP -= attacker.Damage;
+				if(nowHP <= 0) {
+					nowHP = 0;
+					isDied = true;
+					onDied.Invoke(this, attacker);
+				} else {
+					onAttacked.Invoke(attacker);
+				}
 			}
+		}
+
+		/// <summary>
+		/// 回復
+		/// </summary>
+		public void Recover(int recovery) {
+			nowHP += recovery;
+			if(nowHP > hp) nowHP = hp;
+			if(isDied && nowHP > 0) isDied = false;
 		}
 
 		#endregion

@@ -54,14 +54,6 @@ namespace ShootingShip.Equipment {
 		#region VirtualFunction
 
 		/// <summary>
-		/// 初期化
-		/// </summary>
-		public override void InitCom(Structure.ShipStructure structure) {
-			base.InitCom(structure);
-
-		}
-
-		/// <summary>
 		/// 起動
 		/// </summary>
 		public override void AwakeCom() {

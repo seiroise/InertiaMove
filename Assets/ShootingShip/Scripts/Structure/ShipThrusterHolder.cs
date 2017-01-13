@@ -8,11 +8,5 @@ namespace ShootingShip.Structure {
 	/// <summary>
 	/// 機体の推進器ホルダー
 	/// </summary>
-	public class ShipThrusterHolder : ShipEquipmentHolder<ShipThruster> {
-
-		#region VirtualFunction
-
-
-		#endregion
-	}
+	public class ShipThrusterHolder : ShipEquipmentHolder<ShipThruster> { }
 }

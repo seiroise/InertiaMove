@@ -8,10 +8,10 @@ using ShootingUtility.ValueIndicator;
 namespace ShootingStage.AttackableEntity {
 
 	/// <summary>
-	/// ステージ上の攻撃可能オブジェクト
+	/// ステージ上の攻撃可能エンティティ
 	/// </summary>
 	[RequireComponent(typeof(AttackableObject2D))]
-	public abstract class StageAttackableObject : StageEntity {
+	public abstract class StageAttackableEntity: StageEntity {
 
 		protected AttackableObject2D attackable;
 
