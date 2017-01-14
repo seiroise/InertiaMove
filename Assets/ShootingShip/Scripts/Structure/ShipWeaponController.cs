@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections.Generic;
+using ShootingShip.Equipment;
 
 namespace ShootingShip.Structure {
 
 	/// <summary>
 	/// 機体の武器の操作
 	/// </summary>
-	public class ShipWeaponController : ShipComManager<ShipWeaponHolder> {
+	public class ShipWeaponController : ShipEquipmentController<ShipWeapon, ShipWeaponHolder> {
 
 		//ターゲッティング
 		private Transform trans;

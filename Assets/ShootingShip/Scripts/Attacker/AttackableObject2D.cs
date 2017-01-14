@@ -22,6 +22,8 @@ namespace ShootingShip.Attacker {
 
 		public float hpRatio { get { return (float)nowHP / hp; } }
 
+		private Collider2D attackableCollider;
+		public Collider2D AttackableCollider { get { return attackableCollider; } }
 		private bool isDied;
 		public bool IsDied { get { return isDied; } }
 
@@ -34,6 +36,7 @@ namespace ShootingShip.Attacker {
 		#region UnityEvent
 
 		private void Awake() {
+			attackableCollider = GetComponent<Collider2D>();
 			onAttacked = new AttackedEvent();
 			onDied = new DiedEvent();
 			nowHP = hp;

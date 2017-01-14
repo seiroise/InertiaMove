@@ -15,7 +15,7 @@ namespace ShootingShip.Structure {
 		private T equipment;
 		public T Equipment { get { return equipment; } }
 
-		private bool inited;
+		private bool awaked;
 
 		#region VirtualFunction
 
@@ -24,8 +24,7 @@ namespace ShootingShip.Structure {
 		/// </summary>
 		public override void InitCom(ShipStructure structure) {
 			base.InitCom(structure);
-			if (equipment) SetEquipment(equipment);
-			inited = true;
+			if (equipment) equipment.InitCom(structure);
 		}
 
 		/// <summary>
@@ -33,6 +32,7 @@ namespace ShootingShip.Structure {
 		/// </summary>
 		public override void AwakeCom() {
 			base.AwakeCom();
+			awaked = true;
 			if (equipment) equipment.AwakeCom();
 		}
 
@@ -51,7 +51,24 @@ namespace ShootingShip.Structure {
 			this.equipment = equipment;
 			this.equipment.transform.SetParent(transform, false);
 			this.equipment.InitCom(structure);
-			if (inited) this.equipment.AwakeCom();
+			if (awaked) this.equipment.AwakeCom();
+		}
+
+		/// <summary>
+		/// 目標との角度の設定
+		/// </summary>
+		public void SetTargetAngle(Transform target) {
+			SetTargetAngle(target.position);
+		}
+
+		/// <summary>
+		/// 目標との角度の設定
+		/// </summary>
+		public void SetTargetAngle(Vector3 wPosition) {
+			if (axis) {
+				Vector3 d = wPosition - transform.position;
+				axis.SetAngle(Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg);
+			}
 		}
 
 		#endregion

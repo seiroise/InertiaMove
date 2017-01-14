@@ -9,14 +9,12 @@ namespace ShootingUI.Ship {
 	/// <summary>
 	/// 機体の装備のクイックバー
 	/// </summary>
-	public class UIEquipmentQuickBar<Equipment, Indicator, Controller, Holder> : MonoBehaviour
+	public class UIEquipmentQuickBar<Equipment, Holder> : MonoBehaviour
 		where Equipment : ShipEquipment
-		where Indicator : UIEquipmentIndicator<Equipment>
-		where Controller : ShipComManager<Holder>
 		where Holder : ShipEquipmentHolder<Equipment> {
 
 		[SerializeField]
-		protected Indicator[] indicators;
+		protected UIEquipmentIndicator[] indicators;
 
 		#region UnityEvent
 
@@ -40,7 +38,7 @@ namespace ShootingUI.Ship {
 		/// <summary>
 		/// 装備の一括設定
 		/// </summary>
-		public void SetEquipments(Controller controller) {
+		public void SetEquipments(ShipEquipmentController<Equipment, Holder> controller) {
 			var holders = controller.Coms;
 			for (int i = 0; i < indicators.Length; ++i) {
 				if (i < holders.Length) {

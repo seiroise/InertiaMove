@@ -39,8 +39,8 @@ namespace ShootingShip.Factory {
 		/// <summary>
 		/// ランダムな構造の機体を作成
 		/// </summary>
-		public ShipStructure CreateRandom() {
-			ShipStructure structure = CreateShipStructure();
+		public ShipStructure CreateRandom(string tag) {
+			ShipStructure structure = CreateShipStructure(tag);
 			SetRandomWeapon(structure);
 			SetRandomThruster(structure);
 			return structure;
@@ -49,9 +49,10 @@ namespace ShootingShip.Factory {
 		/// <summary>
 		/// 機体構造の作成
 		/// </summary>
-		public ShipStructure CreateShipStructure() {
+		public ShipStructure CreateShipStructure(string tag) {
 			if (structureList) {
 				ShipStructure structure = Instantiate<ShipStructure>(structureList.Get());
+				structure.tag = tag;
 				structure.InitCom(structure);
 				structure.AwakeCom();
 				return structure;

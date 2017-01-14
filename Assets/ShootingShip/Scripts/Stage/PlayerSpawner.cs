@@ -30,8 +30,7 @@ namespace ShootingShip.Stage {
 		/// </summary>
 		public void Spawn() {
 			if(factory) {
-				var st = factory.CreateRandom();
-				st.tag = "Player";
+				var st = factory.CreateRandom("Player");
 				var ship = st.gameObject.AddComponent<ExampleShip>();
 				ship.SetStructure(st);
 			}

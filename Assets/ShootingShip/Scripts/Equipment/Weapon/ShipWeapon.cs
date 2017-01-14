@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using ShootingShip.Structure;
 using ShootingShip.Utility;
 using ShootingShip.Bullet;
+using ShootingUI.Ship;
 
 namespace ShootingShip.Equipment {
 
@@ -43,7 +44,7 @@ namespace ShootingShip.Equipment {
 		private ShipWeaponCom[] coms;
 
 		private float tInterval;
-		public float IntervalRatio { get { return tInterval / baseInterval; } }
+		public float intervalRatio { get { return tInterval / baseInterval; } }
 		private bool isAttacked = false;
 
 		#region UnityEvent
@@ -65,6 +66,14 @@ namespace ShootingShip.Equipment {
 			base.InitCom(ship);
 			tInterval = 0f;
 			InitComs();
+		}
+
+		/// <summary>
+		/// 表示の更新
+		/// </summary>
+		public override void UpdateIndicator(UIEquipmentIndicator indicator){
+			base.UpdateIndicator(indicator);
+			indicator.RatioBar.fillAmount = intervalRatio;
 		}
 
 		#endregion

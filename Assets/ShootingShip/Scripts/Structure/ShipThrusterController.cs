@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections.Generic;
+using ShootingShip.Equipment;
 
 namespace ShootingShip.Structure {
 	
 	/// <summary>
 	/// 機体の推進器の操作
 	/// </summary>
-	public class ShipThrusterController : ShipComManager<ShipThrusterHolder> {
+	public class ShipThrusterController : ShipEquipmentController<ShipThruster, ShipThrusterHolder> {
 
 		#region VirtualFunction
 

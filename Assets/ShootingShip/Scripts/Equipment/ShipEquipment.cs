@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using ShootingShip.Structure;
 using ShootingShip.DataObject;
+using ShootingUI.Ship;
 
 namespace ShootingShip.Equipment {
 
@@ -15,5 +16,13 @@ namespace ShootingShip.Equipment {
 		private EquipmentDataObject equipmentData;
 		public EquipmentDataObject EquipmentData { get { return equipmentData; } }
 
+		#region VirtualFunction
+
+		/// <summary>
+		/// 表示の更新
+		/// </summary>
+		public virtual void UpdateIndicator(UIEquipmentIndicator indicator) { }
+
+		#endregion
 	}
 }

@@ -9,9 +9,9 @@ namespace ShootingUI.Ship {
 	/// <summary>
 	/// 機体の装備の表示
 	/// </summary>
-	public abstract class UIEquipmentIndicator<T> : MonoBehaviour where T : ShipEquipment {
+	public class UIEquipmentIndicator : MonoBehaviour {
 
-		protected T equipment;
+		protected ShipEquipment equipment;
 
 		[Header("UI")]
 		[SerializeField]
@@ -22,6 +22,19 @@ namespace ShootingUI.Ship {
 		[Header("Image")]
 		[SerializeField]
 		private Sprite lockImage;
+
+		[Header("Ratio Bar")]
+		[SerializeField]
+		private Image ratioBar;
+		public Image RatioBar { get { return ratioBar; } }
+
+		#region UnityEvent
+
+		private void Update() {
+			if(equipment) equipment.UpdateIndicator(this);
+		}
+
+		#endregion
 
 		#region Function
 
@@ -67,7 +80,7 @@ namespace ShootingUI.Ship {
 		/// <summary>
 		/// 装備の設定(装備してる状態へ)
 		/// </summary>
-		public virtual void SetEquipment(T equipment) {
+		public virtual void SetEquipment(ShipEquipment equipment) {
 			this.equipment = equipment;
 			var dataObj = equipment.EquipmentData;
 			if (dataObj) {

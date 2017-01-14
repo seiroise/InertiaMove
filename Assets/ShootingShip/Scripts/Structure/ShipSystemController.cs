@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System;
+using ShootingShip.Equipment;
 
 namespace ShootingShip.Structure {
 
 	/// <summary>
 	/// 機体のシステムの操作(管理)
 	/// </summary>
-	public class ShipSystemController : ShipComManager<ShipSystemHolder> {
+	public class ShipSystemController : ShipEquipmentController<ShipSystem, ShipSystemHolder> {
 
 		#region VirtualFunction
 

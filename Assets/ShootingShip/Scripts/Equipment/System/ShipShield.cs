@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System;
 using ShootingShip.Attacker;
+using ShootingUtility.Lerp;
+using ShootingUI.Ship;
 
 namespace ShootingShip.Equipment {
 
@@ -15,7 +17,7 @@ namespace ShootingShip.Equipment {
 		[SerializeField]
 		private CircleCollider2D shieldCollider;
 		[SerializeField]
-		private SpriteRenderer shieldSprite;
+		private LerpSpriteAlpha spriteAlpha;
 
 		[Header("パラメータ")]
 		[SerializeField, Range(0, 10000)]
@@ -25,8 +27,9 @@ namespace ShootingShip.Equipment {
 		[SerializeField, Range(0f, 120f)]
 		private float shieldRecoverTime = 20f;	//再復活時間(秒)
 
-		private AttackableObject2D mainAttackable;	//攻撃されてない時間を測る攻撃可能オブジェクト
-		private float attackedTimer = 0f;			//攻撃されてない時間を測るタイマー
+		private AttackableObject2D shipAttackable;	//攻撃されてない時間を測る攻撃可能オブジェクト
+		private float recoverTimer = 0f;			//再展開までの時間を測るタイマー
+		public float recoverRatio { get { return recoverTimer / shieldRecoverTime; } }
 		private bool isAwakedShield;				//シールドが展開されてるか
 
 		#region UnityEvent
@@ -55,8 +58,25 @@ namespace ShootingShip.Equipment {
 				attackableShield.OnDied.RemoveListener(OnDestroyedShield);
 				attackableShield.OnDied.AddListener(OnDestroyedShield);
 			}
+			shipAttackable = structure.Attackable;
+			if (shipAttackable) {
+				shipAttackable.OnAttacked.RemoveListener(OnAttackedMain);
+				shipAttackable.OnAttacked.AddListener(OnAttackedMain);
+			}
+			//タグの変更
+			shieldCollider.tag = shipAttackable.tag;
 			//シールド起動
 			AwakeShield();
+		}
+
+		public override void UpdateIndicator(UIEquipmentIndicator indicator) {
+			base.UpdateIndicator(indicator);
+			//シールド状態を反映
+			if (isAwakedShield) {
+				indicator.RatioBar.fillAmount = attackableShield.hpRatio;
+			} else {
+				indicator.RatioBar.fillAmount = recoverRatio;
+			}
 		}
 
 		#endregion
@@ -70,6 +90,10 @@ namespace ShootingShip.Equipment {
 			isAwakedShield = true;
 			attackableShield.HP = shieldDurability;
 			shieldCollider.enabled = true;
+			//機体のコライダーをオフ
+			shipAttackable.AttackableCollider.enabled = false;
+			//表示
+			ShieldHitEffect();
 		}
 
 		/// <summary>
@@ -78,15 +102,17 @@ namespace ShootingShip.Equipment {
 		private void DestroyShield() {
 			isAwakedShield = false;
 			shieldCollider.enabled = false;
-			attackedTimer = 0f;
+			//機体のコライダーをオン
+			shipAttackable.AttackableCollider.enabled = true;
+			recoverTimer = 0f;
 		}
 
 		/// <summary>
 		/// シールドの回復(破壊状態から起動状態へ)
 		/// </summary>
 		private void RecoverShield() {
-			attackedTimer += Time.deltaTime;
-			if(attackedTimer > shieldRecoverTime) {
+			recoverTimer += Time.deltaTime;
+			if(recoverTimer > shieldRecoverTime) {
 				//シールド復活
 				AwakeShield();
 			}
@@ -99,19 +125,35 @@ namespace ShootingShip.Equipment {
 			attackableShield.Recover((int)(shieldRegenerate * Time.deltaTime));
 		}
 
+		/// <summary>
+		/// ヒットエフェクトっぽいもの
+		/// </summary>
+		private void ShieldHitEffect() {
+			if (spriteAlpha) {
+				spriteAlpha.ForceSpriteAlpha(1f);
+				spriteAlpha.SetSpriteAlpha(0f);
+			}
+		}
+
 		#endregion
 
 		#region Callback
 
+		/// <summary>
+		/// 本体が攻撃された時
+		/// </summary>
 		private void OnAttackedMain(ObjectAttacker2D attacker) {
-			
+			//未展開時なら再展開時間を0に戻す
+			if (!isAwakedShield) {
+				recoverTimer = 0f;
+			}
 		}
 
 		/// <summary>
 		/// シールドが攻撃された時
 		/// </summary>
 		private void OnAttackedShield(ObjectAttacker2D attacker) {
-			//それっぽいエフェクトを表示
+			ShieldHitEffect();
 		}
 
 		/// <summary>

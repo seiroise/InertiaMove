@@ -1,13 +1,12 @@
-﻿using UnityEngine;
+﻿using ShootingShip.Equipment;
+using ShootingShip.Structure;
 using System;
 using System.Collections.Generic;
-using ShootingShip.Equipment;
-using ShootingShip.Structure;
 
 namespace ShootingUI.Ship {
-
+	
 	/// <summary>
-	/// 推進器クイックバー
-	/// </summary>
-	public class UIThrusterQuickBar : UIEquipmentQuickBar<ShipThruster, UIThrusterIndicator, ShipThrusterController, ShipThrusterHolder> { }
+	/// 機体の推進器のクイックバー
+	/// </summary>	
+	public class UIThrusterQuickBar : UIEquipmentQuickBar<ShipThruster, ShipThrusterHolder> { }
 }

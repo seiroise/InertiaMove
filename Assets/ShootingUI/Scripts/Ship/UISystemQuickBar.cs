@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace ShootingUI.Ship {
 
 	/// <summary>
-	/// 機体のクイックバー
+	/// 機体のシステムのクイックバー
 	/// </summary>
-	public class UIWeaponQuickBar : UIEquipmentQuickBar<ShipWeapon, ShipWeaponHolder> { }
+	public class UISystemQuickBar : UIEquipmentQuickBar<ShipSystem, ShipSystemHolder> { }
 }

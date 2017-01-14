@@ -14,6 +14,8 @@ namespace ShootingUI.Ship {
 		private UIWeaponQuickBar weaponQuickBar;
 		[SerializeField]
 		private UIThrusterQuickBar thrusterQuickBar;
+		[SerializeField]
+		private UISystemQuickBar systemQuickBar;
 
 		#region Function
 
@@ -26,6 +28,9 @@ namespace ShootingUI.Ship {
 			}
 			if (thrusterQuickBar) {
 				thrusterQuickBar.SetEquipments(structure.ThrusterController);
+			}
+			if (systemQuickBar) {
+				systemQuickBar.SetEquipments(structure.SystemController);
 			}
 		}
 

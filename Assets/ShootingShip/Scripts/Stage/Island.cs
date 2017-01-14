@@ -84,7 +84,7 @@ namespace ShootingShip.Stage {
 				if (line.Update()) {
 					//とりあえずテスト
 					//本当は装備の強さをかを考慮する
-					var st = factory.CreateRandom();
+					var st = factory.CreateRandom("Enemy");
 					var ship = st.gameObject.AddComponent<AILeaderShip>();
 					ship.SetStructure(st);
 					ship.TargetTag = "Player";

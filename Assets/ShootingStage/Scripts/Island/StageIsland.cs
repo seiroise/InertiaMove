@@ -70,7 +70,7 @@ namespace ShootingStage.Island {
 		/// 作成
 		/// </summary>
 		private void Create() {
-			var ship = factory.CreateRandom();
+			var ship = factory.CreateRandom("Enemy");
 			var enemy = ship.gameObject.AddComponent<AILeaderShip>();
 			enemy.SetStructure(ship);
 			enemy.TargetTag = "Player";

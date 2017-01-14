@@ -54,7 +54,7 @@ GameObject:
   - 114: {fileID: 114000011833921382}
   - 114: {fileID: 114000011892569040}
   m_Layer: 0
-  m_Name: Holder01
+  m_Name: Holder_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,7 +108,7 @@ GameObject:
   - 114: {fileID: 114000010914263364}
   - 114: {fileID: 114000013642069736}
   m_Layer: 0
-  m_Name: Holder02
+  m_Name: Holder_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -156,7 +156,7 @@ GameObject:
   - 114: {fileID: 114000013968951220}
   - 114: {fileID: 114000012605677038}
   m_Layer: 0
-  m_Name: Holder01
+  m_Name: Holder_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -580,6 +580,8 @@ MonoBehaviour:
   - {fileID: 114000011202052130}
   - {fileID: 114000012258780146}
   - {fileID: 114000013283824458}
+  rBody2d: {fileID: 50000010607337702}
+  attackable: {fileID: 114000012413982116}
 --- !u!114 &114000013968951220
 MonoBehaviour:
   m_ObjectHideFlags: 1
