@@ -21,7 +21,7 @@ namespace ShootingShip.Bullet {
 		public override void InitCom(ShootingBullet owner, ShipWeapon weapon) {
 			base.InitCom(owner, weapon);
 			if (destroyEffectPool == null) {
-				var pool = StageManager.Instance.ParticlePool;
+				var pool = ShipManager.Instance.ParticlePool;
 				destroyEffectPool = pool.RegistObject(destroyEffect);
 			}
 		}

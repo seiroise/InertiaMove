@@ -29,7 +29,7 @@ namespace ShootingShip.Factory {
 		#region UnityEvent
 
 		private void Start() {
-			bulletPool = StageManager.Instance.BulletPool;
+			bulletPool = ShipManager.Instance.BulletPool;
 		}
 
 		#endregion

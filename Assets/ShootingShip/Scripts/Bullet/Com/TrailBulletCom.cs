@@ -36,7 +36,7 @@ namespace ShootingShip.Bullet {
 			base.UpdateCom();
 			if (!isFirstUpdate) {
 				trail = new TrailUpdater(transform, distanceRatio);
-				line = StageManager.Instance.LineFactory.CreateLine(
+				line = ShipManager.Instance.LineFactory.CreateLine(
 					Color.white, lifeTime,
 					trail,
 					new GradientUpdater(gradient)

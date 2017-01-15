@@ -91,7 +91,7 @@ GameObject:
   - 114: {fileID: 114000012272164426}
   - 114: {fileID: 114000010228109230}
   m_Layer: 0
-  m_Name: 10_EnemyStructure
+  m_Name: 201_EnemyStructure
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -41,7 +41,7 @@ namespace ShootingShip.Example {
 		private void Start() {
 			tag = "Player";
 			targetTrans = transform;
-			StageManager sManager = StageManager.Instance;
+			ShipManager sManager = ShipManager.Instance;
 			if (sManager) {
 				sManager.PlayerTracker.Target = targetTrans;
 				sManager.BgPlacer.Target = targetTrans;
@@ -167,7 +167,7 @@ namespace ShootingShip.Example {
 				indicator.SetRatio(attackable.HP, attackable.NowHP);
 			} else {
 				//表示器の取得
-				var sManager = StageManager.Instance;
+				var sManager = ShipManager.Instance;
 				if (sManager && sManager.IndicatorPool) {
 					indicator = sManager.IndicatorPool.GetObject();
 					indicator.Tracker.Target = targetTrans;

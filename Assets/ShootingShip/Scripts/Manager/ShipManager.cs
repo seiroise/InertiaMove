@@ -13,9 +13,9 @@ using ShootingStage.Island;
 namespace ShootingShip.Manager {	
 
 	/// <summary>
-	/// ステージの管理者
+	/// 機体の管理者
 	/// </summary>
-	public class StageManager : SingletonMonoBehaviour<StageManager> {
+	public class ShipManager : SingletonMonoBehaviour<ShipManager> {
 
 		[SerializeField]
 		private SwipeDetector swipe;
@@ -48,9 +48,5 @@ namespace ShootingShip.Manager {
 		[SerializeField]
 		private ParticlePoolDictionary particlePool;
 		public ParticlePoolDictionary ParticlePool { get { return particlePool; } }
-
-		//その他のパラメータ
-		[SerializeField]
-		private IslandParameterSeed islandParameterSeed;
 	}
 }

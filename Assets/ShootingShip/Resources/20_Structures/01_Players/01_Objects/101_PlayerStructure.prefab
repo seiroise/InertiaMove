@@ -175,7 +175,7 @@ GameObject:
   - 114: {fileID: 114000011069749476}
   - 114: {fileID: 114000011900179268}
   m_Layer: 0
-  m_Name: 01_PlayerStructure
+  m_Name: 101_PlayerStructure
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

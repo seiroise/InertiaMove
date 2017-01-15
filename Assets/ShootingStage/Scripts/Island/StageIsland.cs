@@ -10,6 +10,7 @@ using ShootingShip.Manager;
 using ShootingUtility.ObjectDetector;
 using ShootingShip.Attacker;
 using ShootingShip.Example;
+using ShootingStage.Manager;
 
 namespace ShootingStage.Island {
 
@@ -112,7 +113,7 @@ namespace ShootingStage.Island {
 		private FloatIndicator[] ratioIndicators;
 		private bool isShowedRatioIndicator = false;
 
-		private StageManager sManager;
+		private ShipManager sManager;
 		private Dictionary<int, FactoryLine> createObjDic;
 		private FloatIndicator hpIndicator;
 		private bool isDied;
@@ -314,7 +315,7 @@ namespace ShootingStage.Island {
 		/// </summary>
 		public override void InitPoolable() {
 			base.InitPoolable();
-			sManager = StageManager.Instance;
+			sManager = ShipManager.Instance;
 			createObjDic = new Dictionary<int, FactoryLine>();
 			isDied = false;
 			if (detectable) {
@@ -329,6 +330,10 @@ namespace ShootingStage.Island {
 				attackable.OnDied.RemoveListener(OnDied);
 				attackable.OnDied.AddListener(OnDied);
 			}
+			//パラメータの設定
+			var stage = StageManager.Instance;
+			SetIslandParameter(stage.ParameterSeed.CreateRandomParameter());
+
 			InitLines();
 		}
 

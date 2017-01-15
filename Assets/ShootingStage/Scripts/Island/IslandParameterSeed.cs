@@ -10,16 +10,16 @@ namespace ShootingStage.Island {
 	[Serializable]
 	public class IslandParameterSeed {
 
-		[SerializeField]
+		[SerializeField, MinMaxRange(1, 20)]
 		private MinMax durable;    //耐久力
 		public MinMax Durable { get { return durable; } }
-		[SerializeField]
+		[SerializeField, MinMaxRange(1, 20)]
 		private MinMax attack;     //攻撃力(兵装力)
 		public MinMax Attack { get { return attack; } }
-		[SerializeField]
+		[SerializeField, MinMaxRange(1, 20)]
 		private MinMax produce;    //生産力
 		public MinMax Produce { get { return produce; } }
-		[SerializeField]
+		[SerializeField, MinMaxRange(1, 20)]
 		private MinMax defence;    //防衛力
 		public MinMax Defence { get { return defence; } }
 

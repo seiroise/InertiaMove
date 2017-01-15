@@ -105,7 +105,7 @@ namespace ShootingShip.Stage {
 				indicator.SetRatio(attackable.HP, attackable.NowHP);
 			} else {
 				//表示器の取得
-				var sManager = StageManager.Instance;
+				var sManager = ShipManager.Instance;
 				if (sManager && sManager.IndicatorPool) {
 					indicator = sManager.IndicatorPool.GetObject();
 					indicator.Tracker.Target = transform;
