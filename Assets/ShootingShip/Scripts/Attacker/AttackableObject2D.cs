@@ -2,6 +2,7 @@
 using UnityEngine.Events;
 using System;
 using System.Collections.Generic;
+using EditorUtility;
 
 namespace ShootingShip.Attacker {
 
@@ -17,6 +18,7 @@ namespace ShootingShip.Attacker {
 		[SerializeField, Range(100, 100000)]
 		private int hp = 1000;
 		public int HP { get { return hp; } set { hp = nowHP = value; } }
+		[SerializeField, Disable]
 		private int nowHP;
 		public int NowHP { get { return nowHP; } set { nowHP = value; } }
 

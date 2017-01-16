@@ -34,5 +34,16 @@ namespace ShootingShip.Structure {
 
 		private ShipMarker marker;
 		public ShipMarker Marker { get { return marker; } set { marker = value; } }
+
+		#region Function
+
+		/// <summary>
+		/// 初期化
+		/// </summary>
+		public void InitCom() {
+			InitCom(this);
+		}
+
+		#endregion
 	}
 }

@@ -9,7 +9,7 @@ namespace EditorUtility {
 	/// 最小値と最大値を持つ属性の描画
 	/// </summary>
 	[CustomPropertyDrawer(typeof(MinMaxRangeAttribute))]
-	internal sealed class MinMaxRangeDrawer : PropertyDrawer {
+	internal sealed class MinMaxRangeAttrDrawer : PropertyDrawer {
 
 		private const int NUM_WIDTH = 50;
 		private const int PADDING = 5;

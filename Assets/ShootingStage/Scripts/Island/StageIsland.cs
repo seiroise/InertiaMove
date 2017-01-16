@@ -11,6 +11,8 @@ using ShootingUtility.ObjectDetector;
 using ShootingShip.Attacker;
 using ShootingShip.Example;
 using ShootingStage.Manager;
+using ShootingShip.DataObject;
+using ShootingShip.Equipment;
 
 namespace ShootingStage.Island {
 
@@ -95,6 +97,7 @@ namespace ShootingStage.Island {
 	/// <summary>
 	/// ステージ上の島
 	/// </summary>
+	[RequireComponent(typeof(ShipStructure))]
 	public class StageIsland : StageAttackableEntity {
 
 		[Header("プレイヤー")]
@@ -113,9 +116,18 @@ namespace ShootingStage.Island {
 		private FloatIndicator[] ratioIndicators;
 		private bool isShowedRatioIndicator = false;
 
+		[Header("耐久")]
+		[SerializeField]
+		private SystemListDataObject shieldListData;
+		[SerializeField]
+		private string normalShieldName = "IslandNormalShield";
+		[SerializeField]
+		private string reinforcedShieldName = "IslandReinforcedShield";
+
 		private ShipManager sManager;
 		private Dictionary<int, FactoryLine> createObjDic;
 		private FloatIndicator hpIndicator;
+		private ShipStructure structure;
 		private bool isDied;
 
 		#region UnityEvent
@@ -146,13 +158,24 @@ namespace ShootingStage.Island {
 			if(attackable) {
 				attackable.HP = 2000 + (600 * durable - 1);
 			}
-			//シールドの設定
-			if(durable > 15) {
-				//強化シールド
-
-			} else if(durable > 5){
-				//通常シールド
-
+			//空きホルダーの確認
+			if (structure.SystemController.CheckEmptyHolder()) {
+				//シールドの設定
+				if (shieldListData) {
+					ShipShield shield = null;
+					if (durable > 15) {
+						//強化シールド
+						shield = (ShipShield)shieldListData.Get(reinforcedShieldName);
+					} else if (durable > 5) {
+						//通常シールド
+						shield = (ShipShield)shieldListData.Get(normalShieldName);
+					}
+					//シールドの設定
+					if (shield) {
+						shield = Instantiate(shield);
+						structure.SystemController.SetEquipment(shield);
+					}
+				}
 			}
 		}
 
@@ -317,6 +340,11 @@ namespace ShootingStage.Island {
 			base.InitPoolable();
 			sManager = ShipManager.Instance;
 			createObjDic = new Dictionary<int, FactoryLine>();
+			structure = GetComponent<ShipStructure>();
+			if (structure) {
+				structure.InitCom();
+				structure.AwakeCom();
+			}
 			isDied = false;
 			if (detectable) {
 				detectable.OnDetected.RemoveListener(OnDetected);

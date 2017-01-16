@@ -37,6 +37,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000012360781852}
   - 212: {fileID: 212000011398490716}
+  - 114: {fileID: 114000010293990370}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -54,7 +55,7 @@ GameObject:
   - 4: {fileID: 4000014011765070}
   - 114: {fileID: 114000012344179178}
   m_Layer: 0
-  m_Name: BigReinforcedShield
+  m_Name: 202_IslandReinforcedShield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115,6 +116,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 11.2
+--- !u!114 &114000010293990370
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012065649622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2174aec24018de0479a6201338730f0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 212000011398490716}
+  targetAlpha: 0.5
+  amount: 5
 --- !u!114 &114000012344179178
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -129,7 +144,7 @@ MonoBehaviour:
   equipmentData: {fileID: 0}
   attackableShield: {fileID: 114000013615522252}
   shieldCollider: {fileID: 58000010872723660}
-  shieldSprite: {fileID: 212000011398490716}
+  spriteAlpha: {fileID: 114000010293990370}
   shieldDurability: 5000
   shieldRegenerate: 400
   shieldRecoverTime: 40
@@ -145,6 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 1000
+  nowHP: 0
 --- !u!212 &212000011398490716
 SpriteRenderer:
   m_ObjectHideFlags: 1

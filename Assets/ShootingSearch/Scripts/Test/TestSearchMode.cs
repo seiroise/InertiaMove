@@ -10,6 +10,10 @@ namespace ShootingSearch.Test {
 	[RequireComponent(typeof(Button))]
 	public class TestSearchMode : MonoBehaviour {
 
+		[Header("UI")]
+		[SerializeField]
+		private Text indicateText;
+
 		private bool isSearched;
 
 		#region UnityEvent
@@ -22,22 +26,44 @@ namespace ShootingSearch.Test {
 			}
 		}
 
+		private void Start() {
+			ExitSearchMode();
+		}
+
 		#endregion
 
 		#region Function
 
 		/// <summary>
+		/// サーチモードの切り替え
+		/// </summary>
+		public void ToggleSearchMode() {
+			if (isSearched) {
+				ExitSearchMode();
+			} else {
+				EnterSearchMode();
+			}
+			isSearched = !isSearched;
+		}
+
+		/// <summary>
 		/// searchモードの開始
 		/// </summary>
-		public int EnterSearchMode() {
-			return 0;
+		private void EnterSearchMode() {
+			Time.timeScale = 0f;
+			if (indicateText) {
+				indicateText.enabled = true;
+			}
 		}
 
 		/// <summary>
 		/// searchモードの終了
 		/// </summary>
-		public int ExitSearchMode() {
-			return 0;
+		public void ExitSearchMode() {
+			Time.timeScale = 1f;
+			if (indicateText) {
+				indicateText.enabled = false;
+			}
 		}
 
 		#endregion
@@ -48,8 +74,7 @@ namespace ShootingSearch.Test {
 		/// ボタン押下
 		/// </summary>
 		private void OnClick() {
-			//とりあえず時間を止めてみる
-			isSearched == true ? EnterSearchMode() : ExitSearchMode();
+			ToggleSearchMode();
 		}
 
 		#endregion

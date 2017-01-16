@@ -15,7 +15,8 @@ namespace ShootingShip.Structure {
 		private T equipment;
 		public T Equipment { get { return equipment; } }
 
-		private bool awaked;
+		private bool isSeted;
+		public bool IsSeted { get { return isSeted; } }
 
 		#region VirtualFunction
 
@@ -32,7 +33,6 @@ namespace ShootingShip.Structure {
 		/// </summary>
 		public override void AwakeCom() {
 			base.AwakeCom();
-			awaked = true;
 			if (equipment) equipment.AwakeCom();
 		}
 
@@ -48,10 +48,11 @@ namespace ShootingShip.Structure {
 				//取り敢えず削除
 				Destroy(equipment.gameObject);
 			}
+			this.isSeted = true;
 			this.equipment = equipment;
 			this.equipment.transform.SetParent(transform, false);
 			this.equipment.InitCom(structure);
-			if (awaked) this.equipment.AwakeCom();
+			this.equipment.AwakeCom();
 		}
 
 		/// <summary>

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections.Generic;
+using EditorUtility;
 
 namespace ShootingUtility.Lerp {
 
@@ -15,6 +16,9 @@ namespace ShootingUtility.Lerp {
 		private float targetAlpha = 0.5f;
 		[SerializeField, Range(0.1f, 120f)]
 		private float amount = 60f;
+
+		[SerializeField, Button("SetTargetAlpha", "SetTargetAlpha")]
+		private int btn01;
 
 		private bool isLerped;
 		private readonly float epsilon = 0.001f;
@@ -45,6 +49,13 @@ namespace ShootingUtility.Lerp {
 				}
 				target.color = temp;
 			}
+		}
+
+		/// <summary>
+		/// 目標透明度の設定
+		/// </summary>
+		public void SetTargetAlpha() {
+			SetSpriteAlpha(targetAlpha);
 		}
 
 		/// <summary>

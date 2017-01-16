@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e72b1f8bb1ca3943b5c56832e9606ed, type: 3}
+  m_Name: IslandShieldList
+  m_EditorClassIdentifier: UnityEngine:UnityEngine:ScriptableObject
+  datas:
+  - {fileID: 114000013976050154, guid: 3d1891ed3f9d52b45b8328b59a09cb99, type: 2}
+  - {fileID: 114000012344179178, guid: 8163e4d0702fc6341b619e94f8b3dbbb, type: 2}

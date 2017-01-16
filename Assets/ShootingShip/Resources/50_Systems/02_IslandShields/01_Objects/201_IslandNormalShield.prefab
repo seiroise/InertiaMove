@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000011793633400}
   - 114: {fileID: 114000013976050154}
   m_Layer: 0
-  m_Name: BigNormalShield
+  m_Name: 201_IslandNormalShield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,6 +36,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000012648544880}
   - 212: {fileID: 212000010293632130}
+  - 114: {fileID: 114000012399627614}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -127,6 +128,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 1000
+  nowHP: 0
+--- !u!114 &114000012399627614
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013561882592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2174aec24018de0479a6201338730f0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 212000010293632130}
+  targetAlpha: 0.5
+  amount: 5
 --- !u!114 &114000013976050154
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -141,7 +157,7 @@ MonoBehaviour:
   equipmentData: {fileID: 0}
   attackableShield: {fileID: 114000011513671398}
   shieldCollider: {fileID: 58000012416768866}
-  shieldSprite: {fileID: 212000010293632130}
+  spriteAlpha: {fileID: 114000012399627614}
   shieldDurability: 1000
   shieldRegenerate: 200
   shieldRecoverTime: 20

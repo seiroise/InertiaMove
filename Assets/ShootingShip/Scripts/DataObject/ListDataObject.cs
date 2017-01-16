@@ -7,9 +7,12 @@ namespace ShootingShip.DataObject {
 	/// <summary>
 	/// リストのデータオブジェクト
 	/// </summary>
-	public class ListDataObject<T> : ScriptableObject {
+	public class ListDataObject<T> : ScriptableObject where T : Component {
+		
+		[SerializeField]
+		private T[] datas;
 
-		public List<T> datas;
+		private Dictionary<string, T> dataDic;
 
 		#region Function
 
@@ -17,7 +20,22 @@ namespace ShootingShip.DataObject {
 		/// ランダムに取得
 		/// </summary>
 		public T Get() {
-			return datas[Random.Range(0, datas.Count)];
+			return datas[Random.Range(0, datas.Length)];
+		}
+
+		/// <summary>
+		/// 名前を指定して取得
+		/// </summary>
+		public T Get(string name) {
+			if (dataDic == null) {
+				dataDic = new Dictionary<string, T>();
+				foreach (var t in datas) {
+					if(!dataDic.ContainsKey(t.name)) {
+						dataDic.Add(t.name, t);
+					}
+				}
+			}
+			return dataDic.ContainsKey(name) ? dataDic[name] : null;
 		}
 
 		#endregion

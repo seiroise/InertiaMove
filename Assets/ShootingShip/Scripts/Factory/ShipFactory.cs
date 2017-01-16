@@ -53,7 +53,7 @@ namespace ShootingShip.Factory {
 			if (structureList) {
 				ShipStructure structure = Instantiate<ShipStructure>(structureList.Get());
 				structure.tag = tag;
-				structure.InitCom(structure);
+				structure.InitCom();
 				structure.AwakeCom();
 				return structure;
 			} else {

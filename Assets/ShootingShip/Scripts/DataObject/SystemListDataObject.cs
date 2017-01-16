@@ -5,7 +5,7 @@ using ShootingShip.Equipment;
 namespace ShootingShip.DataObject {
 
 	/// <summary>
-	/// 推進器リストデータオブジェクト
+	/// システムリストデータオブジェクト
 	/// </summary>
-	public class ThrusterListDataObject : ListDataObject<ShipThruster> { }
+	public class SystemListDataObject : ListDataObject<ShipSystem> { }
 }
