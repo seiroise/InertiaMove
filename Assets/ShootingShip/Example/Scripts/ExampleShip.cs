@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using ShootingShip.Structure;
 using ShootingShip.Utility;
-using ShootingUtility.InputDetector;
+using ShootingUtility.GestureDetector;
 using ShootingUtility.ObjectDetector;
 using ShootingShip.Manager;
 using ShootingShip.Attacker;

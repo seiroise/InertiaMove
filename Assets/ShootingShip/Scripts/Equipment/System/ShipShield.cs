@@ -105,6 +105,10 @@ namespace ShootingShip.Equipment {
 			//機体のコライダーをオン
 			shipAttackable.AttackableCollider.enabled = true;
 			recoverTimer = 0f;
+			//透明度を0に
+			if(spriteAlpha) {
+				spriteAlpha.SetSpriteAlpha(0f);
+			}
 		}
 
 		/// <summary>
@@ -131,7 +135,7 @@ namespace ShootingShip.Equipment {
 		private void ShieldHitEffect() {
 			if (spriteAlpha) {
 				spriteAlpha.ForceSpriteAlpha(1f);
-				spriteAlpha.SetSpriteAlpha(0f);
+				spriteAlpha.SetSpriteAlpha(0.3f);
 			}
 		}
 

@@ -4,7 +4,7 @@ using ShootingShip.Utility;
 using ShootingUtility.BackgroundScroll;
 using MassLine;
 using ShootingShip.Bullet;
-using ShootingUtility.InputDetector;
+using ShootingUtility.GestureDetector;
 using ShootingUtility.Lerp;
 using ShootingUtility.ValueIndicator;
 using ShootingUtility.Particle;

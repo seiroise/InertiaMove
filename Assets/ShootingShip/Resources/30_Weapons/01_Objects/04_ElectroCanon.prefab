@@ -112,7 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equipmentData: {fileID: 11400000, guid: 2b6c4d9c66d3a81489511132c49dc63e, type: 2}
   baseDamage: 300
-  baseInterval: 1
+  baseInterval: 6
   baseShotRange: 300
   baseSpeed: 100
   bullet: {fileID: 114000010038123874, guid: d9617952daba04e419f8837455a209a1, type: 2}
