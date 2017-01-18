@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3ee68060c2393349aaeb360c30e3240, type: 3}
+  m_Name: STGWeaponList
+  m_EditorClassIdentifier: UnityEngine:UnityEngine:ScriptableObject
+  nickname: 
+  description: 
+  datas:
+  - {fileID: 114000011732179350, guid: dbd7a08a01b38450c8689108889b0584, type: 2}

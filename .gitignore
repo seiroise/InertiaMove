@@ -3,7 +3,6 @@
 # =============== #
 Build/
 Temp/
-Obj/
 UnityGenerated/
 Library/
 
