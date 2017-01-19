@@ -7,6 +7,7 @@ namespace STG.Obj.Weapon {
 	/// <summary>
 	/// STGオブジェクト用の武器のパラメータ
 	/// </summary>
+	[Serializable]
 	public class STGObjWeaponParameter {
 
 		[SerializeField, Range(1, 1000)]

@@ -18,7 +18,8 @@ namespace ShootingUtility.ObjectDetector {
 		private Collider2D detectableArea;
 		private HashSet<ObjectDetector2D<T>> detectors;
 
-		protected T detectableObj;
+		[SerializeField]
+		private T detectableObj;
 		public T DetectableObj { get { return detectableObj; } }
 
 		//コールバック
@@ -33,8 +34,6 @@ namespace ShootingUtility.ObjectDetector {
 			
 			detectableArea = GetComponent<Collider2D>();
 			detectors = new HashSet<ObjectDetector2D<T>>();
-
-			detectableObj = GetComponent<T>();
 
 			onDetected = new DetectedEvent();
 			onReleased = new DetectedEvent();

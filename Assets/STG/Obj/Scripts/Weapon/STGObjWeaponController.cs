@@ -5,9 +5,10 @@ using STG.Obj.Equipment;
 namespace STG.Obj.Weapon {
 
 	/// <summary>
-	/// STG用オブジェクトの武器コントローラ
+	/// STG用オブジェクトのウエポンコントローラ
 	/// </summary>
-	public class STGObjWeaponController : STGObjEquipmentController {
+	[AddComponentMenu("STG/Obj/Weapon/STGObjWeaponController")]
+	public class STGObjWeaponController : STGObjEquipmentController<STGObjWeaponSlot, STGObjWeapon> {
 		
 	}
 }

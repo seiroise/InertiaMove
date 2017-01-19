@@ -53,6 +53,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   equipmentDataObj: {fileID: 0}
+  baseParameter:
+    accele: 10
+    maxCombustEfficiency: 1
+  thrustEffect: {fileID: 0}
 --- !u!212 &212000012422522118
 SpriteRenderer:
   m_ObjectHideFlags: 1
