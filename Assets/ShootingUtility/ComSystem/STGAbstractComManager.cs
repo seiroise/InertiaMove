@@ -42,6 +42,7 @@ namespace ShootingUtility.ComSystem {
 		private Com[] initComs;       //初期化時登録コンポーネント
 
 		protected List<ComTag> comList;   //登録コンポーネント
+		public int comCount { get { return comList != null ? comList.Count : 0; } }
 
 		#region VirtualFunction
 

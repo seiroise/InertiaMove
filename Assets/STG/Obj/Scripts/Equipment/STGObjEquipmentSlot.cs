@@ -52,6 +52,7 @@ namespace STG.Obj.Equipment {
 			//親子関係の設定
 			prefab.transform.SetParent(transform);
 			prefab.transform.localPosition = Vector3.zero;
+			prefab.transform.localEulerAngles = Vector3.zero;
 			//初期化
 			prefab.STGInit(manager);
 			prefab.STGAwake();

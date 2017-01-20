@@ -1,21 +1,22 @@
 ﻿using UnityEngine;
 using ShootingUtility.ComSystem;
 using ShootingUtility.ObjectDetector;
+using STG.Obj.Targeting;
 
 namespace STG.Obj.Marker {
 
 	/// <summary>
 	/// STGオブジェクト用のマーカー
 	/// </summary>
-	[RequireComponent(typeof(DetectableRigidbody2D))]
+	[RequireComponent(typeof(DetectableSTGObj))]
 	public class STGObjMarker : STGCom {
 
 		[SerializeField]
 		private SpriteRenderer markerRenderer;
 		public SpriteRenderer MarkerRenderer { get { return markerRenderer; } }
 
-		private DetectableRigidbody2D detectable;
-		public DetectableRigidbody2D Detectable { get { return detectable; } }
+		private DetectableSTGObj detectable;
+		public DetectableSTGObj Detectable { get { return detectable; } }
 
 		#region VirtualFunction
 
@@ -24,7 +25,7 @@ namespace STG.Obj.Marker {
 		/// </summary>
 		public override void STGInit(STGComManager manager) {
 			base.STGInit(manager);
-			detectable = GetComponent<DetectableRigidbody2D>();
+			detectable = GetComponent<DetectableSTGObj>();
 		}
 
 		#endregion

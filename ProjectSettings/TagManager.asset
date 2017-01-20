@@ -39,6 +39,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: RearMarker
+    uniqueID: 1909823491
+    locked: 0
+  - name: FrontMarker
+    uniqueID: 9486913
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

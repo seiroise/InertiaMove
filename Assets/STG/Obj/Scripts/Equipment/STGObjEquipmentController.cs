@@ -51,6 +51,21 @@ namespace STG.Obj.Equipment {
 			}
 		}
 
+		/// <summary>
+		/// 装備を巡回するためのイテレータ
+		/// </summary>
+		public void EquipmentIterator(Action<int, Equipment> action) {
+			Equipment e;
+			int i = 0;
+			foreach (var c in comList) {
+				e = c.com.Equipment;
+				if (e) {
+					action.Invoke(i, e);
+				}
+				i++;
+			}
+		}
+
 		#endregion
 	}
 }

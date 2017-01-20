@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System;
 using STG.Obj.Equipment;
+using STG.BaseUtility.ObjectDetector;
 
 namespace STG.Obj.Weapon {
 
@@ -11,6 +12,10 @@ namespace STG.Obj.Weapon {
 
 		[SerializeField]
 		private STGObjWeaponParameter baseParameter;
+		public STGObjWeaponParameter BaseParameter { get { return baseParameter; } }
+		[SerializeField]
+		private ObjectAttribute targetAttribute;
+		public ObjectAttribute TargetAttribute { get { return targetAttribute; } set { targetAttribute = value; } }
 
 		#region UnityEvent
 
