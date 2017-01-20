@@ -50,8 +50,9 @@ namespace STG.Obj.Targeting {
 				for (int i = 0; i < targetingAttrs.Length; ++i) {
 					targetingAttrs[i] = ObjectAttribute.Enemy;
 				}
+				weaponCon.OnSet.RemoveListener(OnSetWeapon);
+				weaponCon.OnSet.AddListener(OnSetWeapon);
 			}
-			//コールバック設定
 			if (detector) {
 				detector.OnDetect.RemoveListener(OnObjDetect);
 				detector.OnDetect.AddListener(OnObjDetect);
@@ -106,6 +107,13 @@ namespace STG.Obj.Targeting {
 		/// オブジェクトの解放
 		/// </summary>
 		private void OnObjRelease(STGObj obj) {
+			Targeting();
+		}
+
+		/// <summary>
+		/// 武器が装備された時
+		/// </summary>
+		private void OnSetWeapon(int i, STGObjWeapon weapon) {
 			Targeting();
 		}
 

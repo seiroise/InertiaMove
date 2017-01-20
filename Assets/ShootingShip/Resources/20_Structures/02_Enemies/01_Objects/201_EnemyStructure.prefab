@@ -416,6 +416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68f4a080be37a134e8184720797326dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  detectableObj: {fileID: 50000010607337702}
 --- !u!114 &114000010914263364
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -523,6 +524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 200
+  nowHP: 0
 --- !u!114 &114000012605677038
 MonoBehaviour:
   m_ObjectHideFlags: 1

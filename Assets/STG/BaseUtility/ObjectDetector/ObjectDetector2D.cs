@@ -98,6 +98,14 @@ namespace STG.BaseUtility.ObjectDetector {
 		}
 
 		/// <summary>
+		/// 検出範囲の取得
+		/// </summary>
+		public float GetDetectAreaSize() {
+			//ガバガバ
+			return detectArea.transform.localScale.x;
+		}
+
+		/// <summary>
 		/// 最も近いオブジェクトを取得
 		/// </summary>
 		public DetectableObject2D<T> GetNearObject() {

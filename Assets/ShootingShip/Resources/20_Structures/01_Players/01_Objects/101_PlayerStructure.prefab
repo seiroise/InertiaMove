@@ -728,6 +728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 600
+  nowHP: 0
 --- !u!114 &114000010695537152
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -894,6 +895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68f4a080be37a134e8184720797326dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  detectableObj: {fileID: 50000012514221096}
 --- !u!114 &114000011901630396
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1014,6 +1016,7 @@ MonoBehaviour:
   target: {fileID: 212000011104184100}
   targetAlpha: 0.5
   amount: 10
+  btn01: 0
 --- !u!114 &114000013186384032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1026,6 +1029,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 400
+  nowHP: 0
 --- !u!114 &114000013428093912
 MonoBehaviour:
   m_ObjectHideFlags: 1
