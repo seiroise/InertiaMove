@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System;
-using ShootingUtility.ComSystem;
 using STG.Obj.Thruster;
 using STG.BaseUtility.Lerp;
+using STG.BaseUtility.ComSystem;
 
 namespace STG.Obj.Attitude {
 

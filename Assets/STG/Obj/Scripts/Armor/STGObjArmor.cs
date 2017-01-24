@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections.Generic;
-using ShootingUtility.ComSystem;
 using ShootingShip.Attacker;
+using STG.BaseUtility.ComSystem;
 
 namespace STG.Obj.Armor {
 

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using EditorUtility;
 
-namespace ShootingUtility.ComSystem {
+namespace STG.BaseUtility.ComSystem {
 
 	/// <summary>
 	/// STG用のコンポーネントを複数持つ抽象基底オブジェクト

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 using System;
-using ShootingUtility.ComSystem;
+using STG.BaseUtility.ComSystem;
 
 namespace STG.Obj.Equipment {
 

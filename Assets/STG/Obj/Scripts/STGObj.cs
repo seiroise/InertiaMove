@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System;
-using ShootingUtility.ComSystem;
 using STG.Obj.Marker;
 using STG.Obj.Armor;
 using STG.Obj.Targeting;
 using STG.Obj.Attitude;
 using STG.Obj.Targeting;
+using STG.BaseUtility.ComSystem;
 
 namespace STG.Obj {
 

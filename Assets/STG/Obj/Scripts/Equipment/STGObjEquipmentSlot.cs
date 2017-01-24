@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System;
-using ShootingUtility.ComSystem;
+using STG.BaseUtility.ComSystem;
 
 namespace STG.Obj.Equipment {
 
@@ -10,7 +10,7 @@ namespace STG.Obj.Equipment {
 	public class STGObjEquipmentSlot<E> : STGCom where E : STGObjEquipment {
 
 		[SerializeField]
-		private E equipment;
+		protected E equipment;
 		public E Equipment { get { return equipment; } }
 
 		private bool isSeted;

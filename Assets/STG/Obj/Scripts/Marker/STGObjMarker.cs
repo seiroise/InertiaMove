@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-using ShootingUtility.ComSystem;
 using ShootingUtility.ObjectDetector;
 using STG.Obj.Targeting;
+using STG.BaseUtility.ComSystem;
 
 namespace STG.Obj.Marker {
 

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System;
-using ShootingUtility.ComSystem;
 using STG.Obj.DataObj;
+using STG.BaseUtility.ComSystem;
 
 namespace STG.Obj.Equipment {
 
@@ -13,7 +13,8 @@ namespace STG.Obj.Equipment {
 		[SerializeField]
 		private STGEquipmentDataObj equipmentDataObj;
 
-		private bool isAwaked;	//起動/待機状態
+		protected bool isAwaked;	//起動/待機状態
+		public bool IsAwaked { get { return isAwaked; } }
 
 		#region VirtualFunction
 

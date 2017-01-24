@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System;
-using ShootingUtility.ComSystem;
 using STG.Obj.Targeting;
 using STG.Obj.Weapon;
 using STG.BaseUtility.ObjectDetector;
+using STG.BaseUtility.ComSystem;
 
 namespace STG.Obj.Targeting {
 
@@ -26,8 +26,6 @@ namespace STG.Obj.Targeting {
 
 		private STGObjWeaponController weaponCon;
 
-		private ObjectAttribute[] targetingAttrs;	//武器ごとのターゲッティング属性
-
 		#region UnityEvent
 
 		private void Update() {
@@ -46,10 +44,6 @@ namespace STG.Obj.Targeting {
 			tUpdateInterval = 0f;
 			weaponCon = manager.GetCom<STGObjWeaponController>();
 			if (weaponCon) {
-				targetingAttrs = new ObjectAttribute[weaponCon.comCount];
-				for (int i = 0; i < targetingAttrs.Length; ++i) {
-					targetingAttrs[i] = ObjectAttribute.Enemy;
-				}
 				weaponCon.OnSet.RemoveListener(OnSetWeapon);
 				weaponCon.OnSet.AddListener(OnSetWeapon);
 			}
@@ -80,8 +74,7 @@ namespace STG.Obj.Targeting {
 		/// </summary>
 		private void Targeting() {
 			if (!weaponCon) return;
-			//それぞれの武器毎に設定
-			//設定されている属性で一番近いオブジェクト
+			//それぞれの武器毎に設定されている属性で一番近いオブジェクト
 			weaponCon.EquipmentIterator((i, e) => {
 				var t = detector.GetNearObject(e.TargetAttribute);
 				if (t) {

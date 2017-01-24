@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System;
 
-namespace ShootingUtility.ComSystem {
+namespace STG.BaseUtility.ComSystem {
 
 	/// <summary>
 	/// STG用のコンポーネント
