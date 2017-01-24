@@ -82,6 +82,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   equipmentDataObj: {fileID: 0}
+  baseParameter:
+    damage: 100
+    interval: 1
+    shotRange: 100
+    shotSpeed: 50
+  targetAttribute: 0
+  bullet: {fileID: 114000011625797466, guid: 1951a0c7402916843b6ac154c661dcd9, type: 2}
+  shotPos: {fileID: 4000010940636280}
+  bulletExclusionTag: None
+  coms: []
 --- !u!212 &212000011620519730
 SpriteRenderer:
   m_ObjectHideFlags: 1

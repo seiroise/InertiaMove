@@ -22,5 +22,7 @@ namespace STG.Obj.Weapon {
 		[SerializeField, Range(1, 200)]
 		private float shotSpeed;
 		public float ShotSpeed { get { return shotSpeed; } set { shotSpeed = value; } }
+
+		public float lifeTime { get { return shotRange / shotSpeed; } }
 	}
 }

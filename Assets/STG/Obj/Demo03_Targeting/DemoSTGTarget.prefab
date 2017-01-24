@@ -129,7 +129,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011189228220}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.79, y: -13.73, z: 0}
+  m_LocalPosition: {x: 13.23, y: -16.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -167,7 +167,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 3.1
 --- !u!58 &58000014146712774
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -181,7 +181,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 3.1268501
+  m_Radius: 3.1
 --- !u!114 &114000010415809556
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -193,6 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c4cb9886c04534c80bb3299bfda58b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attribute: 0
   detectableObj: {fileID: 114000013844689034}
 --- !u!114 &114000010562319446
 MonoBehaviour:
@@ -230,7 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: decb718a2f277b14793e5c91f633a6dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  armor: {fileID: 0}
+  armor: {fileID: 114000012341942242}
 --- !u!114 &114000012341942242
 MonoBehaviour:
   m_ObjectHideFlags: 1

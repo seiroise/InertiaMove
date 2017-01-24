@@ -4,6 +4,8 @@ using STG.Obj.Targeting;
 using STG.Obj.Weapon;
 using STG.BaseUtility.ObjectDetector;
 using STG.BaseUtility.ComSystem;
+using STG.Obj.Armor;
+using ShootingShip.Attacker;
 
 namespace STG.Obj.Targeting {
 
@@ -25,6 +27,7 @@ namespace STG.Obj.Targeting {
 		private bool onDetectUpdate = true;		//ターゲット検出/解除時にもターゲットの更新
 
 		private STGObjWeaponController weaponCon;
+		private STGObjArmor armor;
 
 		#region UnityEvent
 
@@ -46,6 +49,11 @@ namespace STG.Obj.Targeting {
 			if (weaponCon) {
 				weaponCon.OnSet.RemoveListener(OnSetWeapon);
 				weaponCon.OnSet.AddListener(OnSetWeapon);
+			}
+			armor = manager.GetCom<STGObjArmor>();
+			if (armor) {
+				armor.Armor.OnDied.RemoveListener(OnDied);
+				armor.Armor.OnDied.AddListener(OnDied);
 			}
 			if (detector) {
 				detector.OnDetect.RemoveListener(OnObjDetect);
@@ -108,6 +116,15 @@ namespace STG.Obj.Targeting {
 		/// </summary>
 		private void OnSetWeapon(int i, STGObjWeapon weapon) {
 			Targeting();
+		}
+
+		/// <summary>
+		/// 死亡時
+		/// </summary>
+		private void OnDied(AttackableObject2D attackable, ObjectAttacker2D attacker) {
+			if (detector) {
+				detector.ReleaseAllObject();
+			}
 		}
 
 		#endregion

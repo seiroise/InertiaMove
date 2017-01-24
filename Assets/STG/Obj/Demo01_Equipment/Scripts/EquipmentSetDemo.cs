@@ -4,6 +4,7 @@ using STG.Obj.DataObj;
 using STG.Obj;
 using STG.Obj.Weapon;
 using STG.Obj.Thruster;
+using STG.Bullet;
 
 /// <summary>
 /// 装備の設定デモ
@@ -21,15 +22,24 @@ public class EquipmentSetDemo : MonoBehaviour {
 	[SerializeField]
 	private STGAddonListDataObj addonList;
 
+	[Header("Bullet")]
+	[SerializeField]
+	private STGBulletPool bulletPool;
+
 	#region UnityEvent
 
 	private void OnGUI() {
 		if (GUILayout.Button("SetWeapon")) {
 			if (weaponList) {
+				//ウエポンコントローラの取得
 				var wCon = targetObj.GetCom<STGObjWeaponController>();
 				Debug.Log(wCon);
 				if (wCon) {
-					wCon.SetEquipment(weaponList.Get(), false);
+					var weapon = wCon.SetEquipment(weaponList.Get(), false);
+					//バレットの設定
+					if (weapon && bulletPool) {
+						weapon.SetBullet(bulletPool);
+					}
 				}
 			}
 		}

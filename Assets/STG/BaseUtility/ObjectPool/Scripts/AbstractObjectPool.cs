@@ -7,7 +7,7 @@ namespace STG.BaseUtility.ObjectPool {
 	/// <summary>
 	/// オブジェクトプール
 	/// </summary>
-	public abstract class AbstractObjectPool<T> : MonoBehaviour where T : Component, IPoolable {
+	public abstract class AbstractObjectPool<T> : MonoBehaviour where T : Component , IPoolable {
 
 		/// <summary>
 		/// プール
@@ -95,7 +95,8 @@ namespace STG.BaseUtility.ObjectPool {
 		private int addNum = 16;
 
 		[Header("初期登録オブジェクト")]
-		public T[] initRegists;
+		[SerializeField]
+		private T[] initRegists;
 
 		private Dictionary<string, Pool> poolDic;
 
