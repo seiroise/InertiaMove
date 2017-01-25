@@ -16,8 +16,8 @@ namespace STG.BaseUtility.ComSystem {
 		protected virtual void Awake() {
 			if(autoInit) {
 				STGInit(this);
+				STGAwake();
 			}
-			STGAwake();
 		}
 
 		#endregion

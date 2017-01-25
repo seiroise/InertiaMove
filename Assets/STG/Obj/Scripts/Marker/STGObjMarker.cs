@@ -60,7 +60,7 @@ namespace STG.Obj.Marker {
 				markerRenderer.color = dieColor;
 			}
 			if (detectable) {
-				detectable.ReleaseAllDetector();
+				detectable.Standby();
 			}
 		}
 
