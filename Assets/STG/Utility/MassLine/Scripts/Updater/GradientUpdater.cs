@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace STG.Utility.MassLine {
 	
 	/// <summary>
-	/// 色の更新器
+	/// 色のグラデーション
 	/// </summary>
 	public class GradientUpdater : LineUpdater {
 		 

@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using ShootingUtility.ObjectDetector;
 using STG.Obj.Targeting;
-using STG.BaseUtility.ComSystem;
 using STG.Obj.Armor;
-using ShootingShip.Attacker;
+using STG.BaseUtility.ComSystem;
+using STG.BaseUtility.Attack;
 
 namespace STG.Obj.Marker {
 

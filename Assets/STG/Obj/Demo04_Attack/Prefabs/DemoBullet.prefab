@@ -22,9 +22,10 @@ GameObject:
   - 212: {fileID: 212000013834244398}
   - 114: {fileID: 114000011625797466}
   - 58: {fileID: 58000013794700066}
-  - 114: {fileID: 114000013428836816}
   - 114: {fileID: 114000013501752340}
+  - 114: {fileID: 114000014188419662}
   - 114: {fileID: 114000013426725074}
+  - 114: {fileID: 114000012650754466}
   m_Layer: 10
   m_Name: DemoBullet
   m_TagString: Untagged
@@ -70,10 +71,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 255f7dfd630154846af1dc1726607b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attacker: {fileID: 114000013428836816}
+  attacker: {fileID: 114000014188419662}
   moveCom: {fileID: 114000013501752340}
   coms:
   - {fileID: 114000013426725074}
+  - {fileID: 114000012650754466}
+--- !u!114 &114000012650754466
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013133866610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3e2df3e27acdce4fb201a2fb792aa13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 0.2
+  vertNum: 8
+  speed: 10
+  gradient:
+    key0:
+      serializedVersion: 2
+      rgba: 16777215
+    key1:
+      serializedVersion: 2
+      rgba: 4294967295
+    key2:
+      serializedVersion: 2
+      rgba: 4278190080
+    key3:
+      serializedVersion: 2
+      rgba: 1073741824
+    key4:
+      serializedVersion: 2
+      rgba: 0
+    key5:
+      serializedVersion: 2
+      rgba: 0
+    key6:
+      serializedVersion: 2
+      rgba: 0
+    key7:
+      serializedVersion: 2
+      rgba: 0
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 6554
+    atime2: 32768
+    atime3: 58982
+    atime4: 65535
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 5
 --- !u!114 &114000013426725074
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -130,19 +189,6 @@ MonoBehaviour:
     m_NumAlphaKeys: 5
   lifeTime: 1
   distanceRatio: 1
---- !u!114 &114000013428836816
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013133866610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 917106965ea3a6e489cdc75206644ab2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  exclusionTag: 
-  damage: 10
 --- !u!114 &114000013501752340
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -155,6 +201,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 50
+--- !u!114 &114000014188419662
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013133866610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f474b5e3df5f99469d386a346e140e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exclusionTag: 
+  damage: 10
 --- !u!212 &212000013834244398
 SpriteRenderer:
   m_ObjectHideFlags: 1

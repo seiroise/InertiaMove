@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using EditorUtility;
 
-namespace ShootingShip.Attacker {
+namespace STG.BaseUtility.Attack {
 
 	public class AttackedEvent : UnityEvent<ObjectAttacker2D> { }
 	public class DiedEvent : UnityEvent<AttackableObject2D, ObjectAttacker2D> { }
@@ -12,6 +12,7 @@ namespace ShootingShip.Attacker {
 	/// <summary>
 	/// 攻撃可能オブジェクト
 	/// </summary>
+	[AddComponentMenu("STG/BaseUtility/Attack/AttackableObject2D")]
 	[RequireComponent(typeof(Collider2D))]
 	public class AttackableObject2D : MonoBehaviour {
 
@@ -23,6 +24,9 @@ namespace ShootingShip.Attacker {
 		public int NowHP { get { return nowHP; } set { nowHP = value; } }
 
 		public float hpRatio { get { return (float)nowHP / hp; } }
+
+		[SerializeField]
+		private bool dieWithCollisionDisable = true;
 
 		private Collider2D attackableCollider;
 		public Collider2D AttackableCollider { get { return attackableCollider; } }
@@ -67,8 +71,7 @@ namespace ShootingShip.Attacker {
 				nowHP -= attacker.Damage;
 				if(nowHP <= 0) {
 					nowHP = 0;
-					isDied = true;
-					onDied.Invoke(this, attacker);
+					Die(attacker);
 				} else {
 					onAttacked.Invoke(attacker);
 				}
@@ -81,7 +84,26 @@ namespace ShootingShip.Attacker {
 		public void Recover(int recovery) {
 			nowHP += recovery;
 			if(nowHP > hp) nowHP = hp;
-			if(isDied && nowHP > 0) isDied = false;
+			if(isDied && nowHP > 0) Reanimate();
+		}
+
+		/// <summary>
+		/// HP0
+		/// </summary>
+		private void Die(ObjectAttacker2D attacker) {
+			isDied = true;
+			if (dieWithCollisionDisable) {
+				attackableCollider.enabled = false;
+			}
+			onDied.Invoke(this, attacker);
+		}
+
+		/// <summary>
+		/// HP0から復活
+		/// </summary>
+		private void Reanimate() {
+			isDied = false;
+			attackableCollider.enabled = true;
 		}
 
 		#endregion

@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections.Generic;
-using ShootingShip.Attacker;
 using STG.BaseUtility.ComSystem;
+using STG.BaseUtility.Attack;
 
 namespace STG.Obj.Armor {
 
@@ -14,5 +14,17 @@ namespace STG.Obj.Armor {
 		[SerializeField]
 		private AttackableObject2D armor;
 		public AttackableObject2D Armor { get { return armor; } }
+
+		#region VirtualFunction
+
+		/// <summary>
+		/// STGオブジェ初期化
+		/// </summary>
+		public override void STGInit(STGComManager manager) {
+			base.STGInit(manager);
+			armor.Init();
+		}
+
+		#endregion
 	}
 }

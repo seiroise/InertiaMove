@@ -3,10 +3,10 @@ using System;
 using System.Collections.Generic;
 using STG.Obj;
 using STG.BaseUtility.ComSystem;
-using ShootingShip.Attacker;
 using STG.Obj.Weapon;
-using STG.BaseUtility.ObjectPool;
 using STG.Bullet.Com;
+using STG.BaseUtility.ObjectPool;
+using STG.BaseUtility.Attack;
 
 namespace STG.Bullet {
 

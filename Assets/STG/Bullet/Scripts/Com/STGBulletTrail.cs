@@ -48,11 +48,9 @@ namespace STG.Bullet.Com {
 			base.UpdateCom();
 			if (!isFirstUpdate) {
 				trail = new TrailUpdater(transform, distanceRatio);
-				line = MassLineFactory.Instance.CreateLine(
-					Color.white, lifeTime,
+				line = lineFactory.CreateLine(Color.white, lifeTime,
 					trail,
-					new GradientUpdater(gradient)
-					);
+					new GradientUpdater(gradient));
 				isFirstUpdate = true;
 			}
 		}

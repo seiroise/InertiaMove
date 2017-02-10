@@ -2,10 +2,10 @@
 using System;
 using STG.Obj.Targeting;
 using STG.Obj.Weapon;
+using STG.Obj.Armor;
 using STG.BaseUtility.ObjectDetector;
 using STG.BaseUtility.ComSystem;
-using STG.Obj.Armor;
-using ShootingShip.Attacker;
+using STG.BaseUtility.Attack;
 
 namespace STG.Obj.Targeting {
 
