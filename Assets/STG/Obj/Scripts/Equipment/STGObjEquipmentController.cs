@@ -90,6 +90,24 @@ namespace STG.Obj.Equipment {
 			}
 		}
 
+		/// <summary>
+		/// 全ての装備を起動状態へ
+		/// </summary>
+		public void AwakeEquipments() {
+			EquipmentIterator((Equipment e) => {
+				e.AwakeEquipment();
+			});
+		}
+
+		/// <summary>
+		/// 全ての装備を待機状態へ
+		/// </summary>
+		public void StandbyEquipments() {
+			EquipmentIterator((Equipment e) => {
+				e.StandbyEquipment();
+			});
+		}
+
 		#endregion
 	}
 }

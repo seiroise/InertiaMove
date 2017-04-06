@@ -27,7 +27,7 @@ namespace STG.Obj.Weapon {
 		public STGBullet Bullet { get { return bullet; } }
 		private STGBulletPool.Pool bulletPool;
 		[SerializeField]
-		private Transform shotPos;
+		private Transform[] shotPositions;
 		[SerializeField]
 		private string bulletExclusionTag = "None";
 		public string BulletExclusionTag { get { return bulletExclusionTag; } set { bulletExclusionTag = value; } }
@@ -99,14 +99,16 @@ namespace STG.Obj.Weapon {
 		/// </summary>
 		private void Shot() {
 			if (bulletPool != null) {
-				STGBullet b = bulletPool.GetObject(shotPos.position);
-				b.transform.eulerAngles = shotPos.eulerAngles;
-				b.InitBullet(this);
-				b.Attacker.ExclusionTag = bulletExclusionTag;
-				b.Attacker.Damage = baseParameter.Damage;
-				b.speed = baseParameter.ShotSpeed;
-				b.LifeTime = bLifeTime;
-				ShotComs(b);
+				foreach (var shotPos in shotPositions) {
+					STGBullet b = bulletPool.GetObject(shotPos.position);
+					b.transform.eulerAngles = shotPos.eulerAngles;
+					b.InitBullet(this);
+					b.Attacker.ExclusionTag = bulletExclusionTag;
+					b.Attacker.Damage = baseParameter.Damage;
+					b.speed = baseParameter.ShotSpeed;
+					b.LifeTime = bLifeTime;
+					ShotComs(b);
+				}
 			}
 		}
 		
