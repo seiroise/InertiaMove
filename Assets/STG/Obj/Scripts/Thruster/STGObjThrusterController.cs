@@ -7,6 +7,7 @@ namespace STG.Obj.Thruster {
 	/// <summary>
 	/// STGオブジェクト用のスラスタコントローラ
 	/// </summary>
+	[AddComponentMenu("STG/Obj/Thruster/STGObjThrusterController")]
 	public class STGObjThrusterController : STGObjEquipmentController<STGObjThrusterSlot, STGObjThruster> {
 
 		[SerializeField]

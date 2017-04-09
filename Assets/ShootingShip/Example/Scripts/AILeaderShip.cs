@@ -102,7 +102,7 @@ namespace ShootingShip.Example {
 		/// <summary>
 		/// 他のオブジェクトを検出
 		/// </summary>
-		private void OnDetect(DetectableObject2D<Rigidbody2D> obj) {
+		private void OnDetect(componentect2D<Rigidbody2D> obj) {
 			//フィルター
 			if(obj.tag.Equals(targetTag)) {
 				thruster.ThrusterAwake();
@@ -114,7 +114,7 @@ namespace ShootingShip.Example {
 		/// <summary>
 		/// 検出オブジェクトを解放
 		/// </summary>
-		private void OnRelease(DetectableObject2D<Rigidbody2D> obj) {
+		private void OnRelease(componentect2D<Rigidbody2D> obj) {
 			if(obj.transform == target) {
 				thruster.ThrusterStandby();
 				target = null;

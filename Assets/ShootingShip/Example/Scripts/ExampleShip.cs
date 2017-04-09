@@ -34,7 +34,7 @@ namespace ShootingShip.Example {
 		//ターゲッティング
 		private RigidbodyDetector2D detector;
 		private Transform targetTrans;
-		private DetectableObject2D<Rigidbody2D> detected;
+		private componentect2D<Rigidbody2D> detected;
 
 		#region UnityEvent
 
@@ -100,7 +100,7 @@ namespace ShootingShip.Example {
 		private void Targeting() {
 			if (detector) {
 				if(detected = detector.GetNearObject()) {
-					weapon.SetTarget(detected.DetectableObj);
+					weapon.SetTarget(detected.component);
 				}
 			}
 		}
@@ -141,7 +141,7 @@ namespace ShootingShip.Example {
 		/// <summary>
 		/// 他のオブジェクトを検出
 		/// </summary>
-		private void OnDetect(DetectableObject2D<Rigidbody2D> obj) {
+		private void OnDetect(componentect2D<Rigidbody2D> obj) {
 			//武器を起動
 			if (weapon && detector.GetDetectCount() > 0) {
 				weapon.WeaponAwake();
@@ -151,7 +151,7 @@ namespace ShootingShip.Example {
 		/// <summary>
 		/// 他のオブジェクトを解放
 		/// </summary>
-		private void OnRelease(DetectableObject2D<Rigidbody2D> obj) {
+		private void OnRelease(componentect2D<Rigidbody2D> obj) {
 			//武器を待機
 			if (weapon && detector.GetDetectCount() <= 0) {
 				weapon.WeaponStandby();

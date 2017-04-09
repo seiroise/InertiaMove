@@ -12,35 +12,36 @@ namespace STG.Obj {
 	/// <summary>
 	/// STG用のオブジェクト
 	/// </summary>
+	[AddComponentMenu("STG/Obj/STGObj")]
 	public class STGObj : STGComManager {
 
 		//主要コンポーネント
-		private STGObjMarker marker;
-		public STGObjMarker Marker {
+		private STGObjMarker _marker;
+		public STGObjMarker marker {
 			get {
-				if(!marker) marker = GetCom<STGObjMarker>();
-				return marker;
+				if(!_marker) _marker = GetCom<STGObjMarker>();
+				return _marker;
 			}
 		}
-		private STGObjTargetingResolver targetingResolver;
-		public STGObjTargetingResolver TargetingResolver {
+		private STGObjTargetingResolver _targetingResolver;
+		public STGObjTargetingResolver targetingResolver {
 			get {
-				if (!targetingResolver) targetingResolver = GetCom<STGObjTargetingResolver>();
-				return targetingResolver;
+				if (!_targetingResolver) _targetingResolver = GetCom<STGObjTargetingResolver>();
+				return _targetingResolver;
 			}
 		}
-		private STGObjArmor armor;
-		public STGObjArmor Armor {
+		private STGObjArmor _armor;
+		public STGObjArmor armor {
 			get {
-				if (!armor) armor = GetCom<STGObjArmor>();
-				return armor;
+				if (!_armor) _armor = GetCom<STGObjArmor>();
+				return _armor;
 			}
 		}
-		private STGObjAttitudeController attitudeCon;
-		public STGObjAttitudeController AttitudeCon {
+		private STGObjAttitudeController _attitudeCon;
+		public STGObjAttitudeController attitudeCon {
 			get {
-				if (!attitudeCon) attitudeCon = GetCom<STGObjAttitudeController>();
-				return attitudeCon;
+				if (!_attitudeCon) _attitudeCon = GetCom<STGObjAttitudeController>();
+				return _attitudeCon;
 			}
 		}
 	}

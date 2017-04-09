@@ -15,10 +15,10 @@ namespace STG.Obj.Equipment {
 		public class EquipmentEvent : UnityEvent<int, Equipment> {}
 
 		//コールバック
-		private EquipmentEvent onSet;
-		public EquipmentEvent OnSet { get { return onSet; } }
-		private EquipmentEvent onRemove;
-		public EquipmentEvent OnRemove { get { return onRemove; } }
+		private EquipmentEvent _onSet;
+		public EquipmentEvent onSet { get { return _onSet; } }
+		private EquipmentEvent _onRemove;
+		public EquipmentEvent onRemove { get { return _onRemove; } }
 
 		#region VirtualFunction
 
@@ -27,21 +27,33 @@ namespace STG.Obj.Equipment {
 		/// </summary>
 		public override void STGInit(STGComManager manager) {
 			base.STGInit(manager);
-			onSet = new EquipmentEvent();
-			onRemove = new EquipmentEvent();
+			_onSet = new EquipmentEvent();
+			_onRemove = new EquipmentEvent();
+		}
+
+		/// <summary>
+		/// 装備を指定したスロットに設定する。
+		/// </summary>
+		public virtual Equipment SetEquipment(int slot, Equipment equipment, bool isInstantiated) {
+			if(slot < 0 || _comList.Count <= slot) return null;
+			if(!_comList[slot].com.isSeted) {
+				var e = _comList[slot].com.SetEquipment(equipment, isInstantiated);
+				if(e) _onSet.Invoke(slot, e);
+				return e;
+			} else {
+				return null;
+			}
 		}
 
 		/// <summary>
 		/// 装備を空きスロットに設定する。
 		/// 生成を同時に行う場合はisInstantiatedをfalseにする。
 		/// </summary>
-		public virtual Equipment SetEquipment(Equipment prefab, bool isInstantiated) {
+		public virtual Equipment SetEquipment(Equipment equipment, bool isInstantiated) {
 			int i = 0;
-			foreach(var c in comList) {
-				if(!c.com.IsSeted) {
-					var e = c.com.SetEquipment(prefab, isInstantiated);
-					if(e) onSet.Invoke(i, e);
-					return e;
+			foreach(var c in _comList) {
+				if(!c.com.isSeted) {
+					return SetEquipment(i, equipment, isInstantiated);
 				}
 				++i;
 			}
@@ -51,10 +63,10 @@ namespace STG.Obj.Equipment {
 		/// <summary>
 		/// 指定したスロットに設定されている装備を解除する
 		/// </summary>
-		public virtual Equipment RemoveEquipment(int index) {
-			if(index < 0 && comList.Count <= index) return null;
-			var e = comList[index].com.RemoveEquipment();
-			if(e) onRemove.Invoke(index, e);
+		public virtual Equipment RemoveEquipment(int slot) {
+			if(slot < 0 || _comList.Count <= slot) return null;
+			var e = _comList[slot].com.RemoveEquipment();
+			if(e) _onRemove.Invoke(slot, e);
 			return e;
 		}
 
@@ -67,8 +79,8 @@ namespace STG.Obj.Equipment {
 		/// </summary>
 		public void EquipmentIterator(Action<Equipment> action) {
 			Equipment e;
-			foreach(var c in comList) {
-				e = c.com.Equipment;
+			foreach(var c in _comList) {
+				e = c.com.equipment;
 				if(e) {
 					action.Invoke(e);
 				}
@@ -81,8 +93,8 @@ namespace STG.Obj.Equipment {
 		public void EquipmentIterator(Action<int, Equipment> action) {
 			Equipment e;
 			int i = 0;
-			foreach (var c in comList) {
-				e = c.com.Equipment;
+			foreach (var c in _comList) {
+				e = c.com.equipment;
 				if (e) {
 					action.Invoke(i, e);
 				}
@@ -95,7 +107,7 @@ namespace STG.Obj.Equipment {
 		/// </summary>
 		public void AwakeEquipments() {
 			EquipmentIterator((Equipment e) => {
-				e.AwakeEquipment();
+				e.StandUpEquipment();
 			});
 		}
 
@@ -104,7 +116,7 @@ namespace STG.Obj.Equipment {
 		/// </summary>
 		public void StandbyEquipments() {
 			EquipmentIterator((Equipment e) => {
-				e.StandbyEquipment();
+				e.StandDownEquipment();
 			});
 		}
 

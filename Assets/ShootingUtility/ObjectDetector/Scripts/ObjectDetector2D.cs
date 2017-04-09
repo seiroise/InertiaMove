@@ -13,11 +13,11 @@ namespace ShootingUtility.ObjectDetector {
 	[RequireComponent(typeof(Collider2D))]
 	public abstract class ObjectDetector2D<T> : MonoBehaviour where T : Component {
 
-		public class DetectorEvent : UnityEvent<DetectableObject2D<T>> { }
+		public class DetectorEvent : UnityEvent<componentect2D<T>> { }
 
 		//検出関連
 		private Collider2D detectionArea;						//検出領域
-		private HashSet<DetectableObject2D<T>> objects;			//検出物
+		private HashSet<componentect2D<T>> objects;			//検出物
 
 		//コールバック
 		private DetectorEvent onDetect;		//検知
@@ -29,7 +29,7 @@ namespace ShootingUtility.ObjectDetector {
 
 		private void Awake() {
 			detectionArea = GetComponent<Collider2D>();
-			objects = new HashSet<DetectableObject2D<T>>();
+			objects = new HashSet<componentect2D<T>>();
 
 			onDetect = new DetectorEvent();
 			onRelease = new DetectorEvent();
@@ -46,7 +46,7 @@ namespace ShootingUtility.ObjectDetector {
 		/// <summary>
 		/// オブジェクトの検出
 		/// </summary>
-		public void DetectObject(DetectableObject2D<T> obj) {
+		public void DetectObject(componentect2D<T> obj) {
 			//包含判定
 			if (objects.Contains(obj)) return;
 			//検出オブジェクトの追加
@@ -60,7 +60,7 @@ namespace ShootingUtility.ObjectDetector {
 		/// <summary>
 		/// オブジェクトの解除
 		/// </summary>
-		public void ReleaseObject(DetectableObject2D<T> obj) {
+		public void ReleaseObject(componentect2D<T> obj) {
 			//包含判定
 			if (!objects.Contains(obj)) return;
 			//削除
@@ -91,13 +91,13 @@ namespace ShootingUtility.ObjectDetector {
 		/// <summary>
 		/// 最も近いオブジェクトを取得
 		/// </summary>
-		public DetectableObject2D<T> GetNearObject() {
+		public componentect2D<T> GetNearObject() {
 			if (objects.Count == 0) {
 				return null;
 			} else if (objects.Count == 1) {
 				return objects.First();
 			} else {
-				DetectableObject2D<T> nearObj = null;
+				componentect2D<T> nearObj = null;
 				Vector3 pos = transform.position;
 				float distA = float.MaxValue;
 				float distB;

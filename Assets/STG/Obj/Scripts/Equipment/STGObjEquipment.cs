@@ -11,30 +11,30 @@ namespace STG.Obj.Equipment {
 	public class STGObjEquipment : STGCom {
 
 		[SerializeField]
-		private STGEquipmentDataObj equipmentDataObj;
+		private STGEquipmentDataObj _equipmentDataObj;
 
-		protected bool isAwaked;	//起動/待機状態
-		public bool IsAwaked { get { return isAwaked; } }
+		protected bool _isBusy;	//起動状態
+		public bool isBusy { get { return _isBusy; } }
 
 		#region VirtualFunction
 
 		public override void STGInit(STGComManager manager) {
 			base.STGInit(manager);
-			StandbyEquipment();
+			StandDownEquipment();
 		}
 
 		/// <summary>
 		/// 起動状態へ
 		/// </summary>
-		public virtual void AwakeEquipment() {
-			isAwaked = true;
+		public virtual void StandUpEquipment() {
+			_isBusy = true;
 		}
 
 		/// <summary>
 		/// 待機状態へ
 		/// </summary>
-		public virtual void StandbyEquipment() {
-			isAwaked = false;
+		public virtual void StandDownEquipment() {
+			_isBusy = false;
 		}
 
 		#endregion

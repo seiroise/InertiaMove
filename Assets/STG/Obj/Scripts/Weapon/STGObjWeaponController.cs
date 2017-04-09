@@ -5,7 +5,7 @@ using STG.Obj.Equipment;
 namespace STG.Obj.Weapon {
 
 	/// <summary>
-	/// STG用オブジェクトのウエポンコントローラ
+	/// STGオブジェクト用の武器制御盤
 	/// </summary>
 	[AddComponentMenu("STG/Obj/Weapon/STGObjWeaponController")]
 	public class STGObjWeaponController : STGObjEquipmentController<STGObjWeaponSlot, STGObjWeapon> {
@@ -16,8 +16,8 @@ namespace STG.Obj.Weapon {
 		/// ターゲットの設定
 		/// </summary>
 		public void SetTarget(int slotNum, Transform targetTrans) {
-			if (slotNum < 0 && comList.Count <= slotNum) return;
-			comList[slotNum].com.SetTarget(targetTrans);
+			if (slotNum < 0 && _comList.Count <= slotNum) return;
+			_comList[slotNum].com.SetTarget(targetTrans);
 		}
 
 		#endregion

@@ -13,7 +13,7 @@ namespace STG.BaseUtility.ObjectDetector {
 	[RequireComponent(typeof(Collider2D))]
 	public abstract class ObjectDetector2D<T> : MonoBehaviour where T : Component {
 
-		public class DetectorEvent : UnityEvent<T> { }
+		public class DetectorEvent : UnityEvent<ObjectAttribute, T> { }
 
 		//検出関連
 		private Collider2D detectArea;						//検出領域
@@ -53,15 +53,15 @@ namespace STG.BaseUtility.ObjectDetector {
 			//包含判定
 			if (objects.Contains(obj)) return;
 			//検出オブジェクトの追加
-			if (!objectDic.ContainsKey(obj.Attribute)) {
-				objectDic.Add(obj.Attribute, new HashSet<DetectableObject2D<T>>());
+			if (!objectDic.ContainsKey(obj.attribute)) {
+				objectDic.Add(obj.attribute, new HashSet<DetectableObject2D<T>>());
 			}
-			objectDic[obj.Attribute].Add(obj);
+			objectDic[obj.attribute].Add(obj);
 			objects.Add(obj);
 			//オブジェクト側も追加
 			obj.DetectDetector(this);
 			//コールバック
-			onDetect.Invoke(obj.DetectableObj);
+			onDetect.Invoke(obj.attribute, obj.component);
 		}
 
 		/// <summary>
@@ -71,12 +71,12 @@ namespace STG.BaseUtility.ObjectDetector {
 			//包含判定
 			if (!objects.Contains(obj)) return;
 			//削除
-			objectDic[obj.Attribute].Remove(obj);
+			objectDic[obj.attribute].Remove(obj);
 			objects.Remove(obj);
 			//オブジェクト側も削除
 			obj.ReleaseDetector(this);
 			//コールバック
-			onRelease.Invoke(obj.DetectableObj);
+			onRelease.Invoke(obj.attribute, obj.component);
 		}
 
 		/// <summary>
@@ -149,11 +149,11 @@ namespace STG.BaseUtility.ObjectDetector {
 						nearObj = obj;
 					}
 				}
-				return nearObj.DetectableObj;
+				return nearObj.component;
 			} else if (count == 0) {
 				return null;
 			} else {
-				return list.First().DetectableObj;
+				return list.First().component;
 			}
 		}
 

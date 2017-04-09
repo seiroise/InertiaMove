@@ -6,6 +6,7 @@ using STG.Obj.Armor;
 using STG.BaseUtility.ObjectDetector;
 using STG.BaseUtility.ComSystem;
 using STG.BaseUtility.Attack;
+using STG.Obj.Sensor;
 
 namespace STG.Obj.Targeting {
 
@@ -47,13 +48,13 @@ namespace STG.Obj.Targeting {
 			tUpdateInterval = 0f;
 			weaponCon = manager.GetCom<STGObjWeaponController>();
 			if (weaponCon) {
-				weaponCon.OnSet.RemoveListener(OnSetWeapon);
-				weaponCon.OnSet.AddListener(OnSetWeapon);
+				weaponCon.onSet.RemoveListener(OnSetWeapon);
+				weaponCon.onSet.AddListener(OnSetWeapon);
 			}
 			armor = manager.GetCom<STGObjArmor>();
 			if (armor) {
-				armor.Armor.OnDied.RemoveListener(OnDied);
-				armor.Armor.OnDied.AddListener(OnDied);
+				armor.armor.OnDied.RemoveListener(OnDied);
+				armor.armor.OnDied.AddListener(OnDied);
 			}
 			if (detector) {
 				detector.OnDetect.RemoveListener(OnObjDetect);
@@ -100,14 +101,14 @@ namespace STG.Obj.Targeting {
 		/// <summary>
 		/// オブジェクトの検出
 		/// </summary>
-		private void OnObjDetect(STGObj obj) {
+		private void OnObjDetect(ObjectAttribute attr, STGObj obj) {
 			Targeting();
 		}
 
 		/// <summary>
 		/// オブジェクトの解放
 		/// </summary>
-		private void OnObjRelease(STGObj obj) {
+		private void OnObjRelease(ObjectAttribute attr, STGObj obj) {
 			Targeting();
 		}
 

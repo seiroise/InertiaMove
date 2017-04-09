@@ -12,8 +12,8 @@ namespace STG.Obj.Armor {
 	public class STGObjArmor : STGCom {
 
 		[SerializeField]
-		private AttackableObject2D armor;
-		public AttackableObject2D Armor { get { return armor; } }
+		private AttackableObject2D _armor;
+		public AttackableObject2D armor { get { return _armor; } }
 
 		#region VirtualFunction
 
@@ -22,7 +22,10 @@ namespace STG.Obj.Armor {
 		/// </summary>
 		public override void STGInit(STGComManager manager) {
 			base.STGInit(manager);
-			armor.Init();
+			if(_armor) {
+				_armor = GetComponent<AttackableObject2D>();
+			}
+			_armor.Init();
 		}
 
 		#endregion

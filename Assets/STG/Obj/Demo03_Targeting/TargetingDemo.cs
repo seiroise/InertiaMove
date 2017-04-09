@@ -2,6 +2,7 @@
 using System.Collections;
 using STG.Obj;
 using ShootingUtility.ObjectDetector;
+using STG.BaseUtility.ObjectDetector;
 
 public class TargetingDemo : MonoBehaviour {
 
@@ -12,10 +13,10 @@ public class TargetingDemo : MonoBehaviour {
 	private void Start() {
 		//コールバックの設定
 		if (playerShip) {
-			playerShip.TargetingResolver.Detector.OnDetect.RemoveListener(OnObjDetect);
-			playerShip.TargetingResolver.Detector.OnDetect.AddListener(OnObjDetect);
-			playerShip.TargetingResolver.Detector.OnRelease.RemoveListener(OnObjRelease);
-			playerShip.TargetingResolver.Detector.OnRelease.AddListener(OnObjRelease);
+			playerShip.targetingResolver.Detector.OnDetect.RemoveListener(OnObjDetect);
+			playerShip.targetingResolver.Detector.OnDetect.AddListener(OnObjDetect);
+			playerShip.targetingResolver.Detector.OnRelease.RemoveListener(OnObjRelease);
+			playerShip.targetingResolver.Detector.OnRelease.AddListener(OnObjRelease);
 		}
 	}
 
@@ -27,11 +28,11 @@ public class TargetingDemo : MonoBehaviour {
 
 	#region Callback
 
-	private void OnObjDetect(STGObj obj) {
+	private void OnObjDetect(ObjectAttribute attr, STGObj obj) {
 		Debug.Log("Detected : " + obj);
 	}
 
-	private void OnObjRelease(STGObj obj) {
+	private void OnObjRelease(ObjectAttribute attr, STGObj obj) {
 		Debug.Log("Released : " + obj);
 	}
 

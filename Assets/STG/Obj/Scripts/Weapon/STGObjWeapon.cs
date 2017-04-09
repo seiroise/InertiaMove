@@ -42,7 +42,7 @@ namespace STG.Obj.Weapon {
 		#region UnityEvent
 
 		private void Update() {
-			if (isAwaked) {
+			if (_isBusy) {
 				Reload();
 			}
 		}
@@ -66,16 +66,16 @@ namespace STG.Obj.Weapon {
 		/// <summary>
 		/// 武器起動
 		/// </summary>
-		public override void AwakeEquipment() {
-			base.AwakeEquipment();
+		public override void StandUpEquipment() {
+			base.StandUpEquipment();
 			AwakeComs();
 		}
 
 		/// <summary>
 		/// 武器待機
 		/// </summary>
-		public override void StandbyEquipment() {
-			base.StandbyEquipment();
+		public override void StandDownEquipment() {
+			base.StandDownEquipment();
 			StandbyComs();
 		}
 

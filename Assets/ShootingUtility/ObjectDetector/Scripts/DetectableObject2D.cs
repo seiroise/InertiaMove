@@ -10,7 +10,7 @@ namespace ShootingUtility.ObjectDetector {
 	/// 検出可能オブジェクト
 	/// </summary>
 	[RequireComponent(typeof(Collider2D))]
-	public abstract class DetectableObject2D<T> : MonoBehaviour where T : Component {
+	public abstract class componentect2D<T> : MonoBehaviour where T : Component {
 
 		public class DetectedEvent : UnityEvent<ObjectDetector2D<T>> { }
 
@@ -19,8 +19,8 @@ namespace ShootingUtility.ObjectDetector {
 		private HashSet<ObjectDetector2D<T>> detectors;
 
 		[SerializeField]
-		private T detectableObj;
-		public T DetectableObj { get { return detectableObj; } }
+		private T _component;
+		public T component { get { return _component; } }
 
 		//コールバック
 		private DetectedEvent onDetected;	//検知された

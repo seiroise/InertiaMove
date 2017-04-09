@@ -14,15 +14,18 @@ namespace STG.BaseUtility.ComSystem {
 		/// 登録されているコンポーネントの識別タグ
 		/// </summary>
 		protected class ComTag {
-			public Com com;
-			public Type comType;
+			
+			private Com _com;
+			public Com com { get { return _com; } }
+			private Type _comType;
+			public Type comType { get { return comType; } }
 
 			/// <summary>
 			/// コンストラクタ
 			/// </summary>
 			public ComTag(Com com) {
-				this.com = com;
-				this.comType = com.GetType();
+				this._com = com;
+				this._comType = com.GetType();
 			}
 
 
@@ -36,13 +39,13 @@ namespace STG.BaseUtility.ComSystem {
 		}
 
 		[SerializeField, Button("SetChildrenCom", "SetChildrenCom")]
-		private int btn1;
+		private int _btn1;
 
 		[SerializeField]
-		private Com[] initComs;       //初期化時登録コンポーネント
+		private Com[] _initComs;       //初期化時登録コンポーネント
 
-		protected List<ComTag> comList;   //登録コンポーネント
-		public int comCount { get { return comList != null ? comList.Count : 0; } }
+		protected List<ComTag> _comList;   //登録コンポーネント
+		public int comCount { get { return _comList != null ? _comList.Count : 0; } }
 
 		#region VirtualFunction
 
@@ -51,7 +54,7 @@ namespace STG.BaseUtility.ComSystem {
 		/// </summary>
 		public override void STGInit(STGComManager manager) {
 			base.STGInit(manager);
-			comList = new List<ComTag>();
+			_comList = new List<ComTag>();
 			InitComs(manager);
 		}
 
@@ -71,10 +74,10 @@ namespace STG.BaseUtility.ComSystem {
 		/// 登録コンポーネントの初期化
 		/// </summary>
 		private void InitComs(STGComManager manager) {
-			foreach(var c in initComs) {
+			foreach(var c in _initComs) {
 				if(c) {
 					c.STGInit(manager);
-					comList.Add(new ComTag(c));
+					_comList.Add(new ComTag(c));
 				}
 			}
 		}
@@ -83,7 +86,7 @@ namespace STG.BaseUtility.ComSystem {
 		/// 登録コンポーネントの起動
 		/// </summary>
 		private void AwakeComs() {
-			foreach(var c in comList) {
+			foreach(var c in _comList) {
 				if(c) c.com.STGAwake();
 			}
 		}
@@ -92,8 +95,8 @@ namespace STG.BaseUtility.ComSystem {
 		/// コンポーネントの追加
 		/// </summary>
 		public void AddCom(Com com) {
-			if(com && comList != null) {
-				comList.Add(new ComTag(com));
+			if(com && _comList != null) {
+				_comList.Add(new ComTag(com));
 				com.STGInit(manager);
 				com.STGAwake();
 			}
@@ -103,11 +106,11 @@ namespace STG.BaseUtility.ComSystem {
 		/// コンポーネントの削除
 		/// </summary>
 		public void RemoveCom(Com com) {
-			if(com && comList != null) {
-				for(int i = 0; i < comList.Count; ++i) {
-					if(comList[i].com == com) {
-						Destroy(comList[i].com);
-						comList.RemoveAt(i);
+			if(com && _comList != null) {
+				for(int i = 0; i < _comList.Count; ++i) {
+					if(_comList[i].com == com) {
+						Destroy(_comList[i].com);
+						_comList.RemoveAt(i);
 						return;
 					}
 				}
@@ -119,9 +122,9 @@ namespace STG.BaseUtility.ComSystem {
 		/// </summary>
 		public T GetCom<T>() where T : Com {
 			Type type = typeof(T);
-			for(int i = 0; i < comList.Count; ++i) {
-				if(comList[i].comType == type) {
-					return (T)comList[i].com;
+			for(int i = 0; i < _comList.Count; ++i) {
+				if(_comList[i].comType == type) {
+					return (T)_comList[i].com;
 				}
 			}
 			return null;
@@ -142,7 +145,7 @@ namespace STG.BaseUtility.ComSystem {
 					coms.AddRange(c);
 				}
 			}
-			initComs = coms.ToArray();
+			_initComs = coms.ToArray();
 		}
 
 		#endregion

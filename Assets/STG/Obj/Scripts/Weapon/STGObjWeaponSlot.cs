@@ -44,16 +44,16 @@ namespace STG.Obj.Weapon {
 			if (targetTrans) {
 				axis.IsLocal = false;
 				//装備が設定されているなら装備も起動
-				if (equipment && !equipment.IsAwaked) {
-					equipment.AwakeEquipment();
+				if (_equipment && !_equipment.isBusy) {
+					_equipment.StandUpEquipment();
 				}
 			} else {
 				//デフォの角度へ
 				axis.IsLocal = true;
 				axis.SetAngle(0f);
 				//装備が設定されているなら装備を停止
-				if (equipment && equipment.IsAwaked) {
-					equipment.StandbyEquipment();
+				if (_equipment && _equipment.isBusy) {
+					_equipment.StandDownEquipment();
 				}
 			}
 		}

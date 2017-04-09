@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using STG.Obj;
 using STG.Obj.Targeting;
 using STG.BaseUtility.Lerp;
+using STG.Obj.Sensor;
+using STG.BaseUtility.ObjectDetector;
 
 public class TargetingCamera : MonoBehaviour {
 
@@ -17,7 +19,7 @@ public class TargetingCamera : MonoBehaviour {
 	#region UnityEvent
 
 	private void Start() {
-		detector = playerShip.TargetingResolver.Detector;
+		detector = playerShip.targetingResolver.Detector;
 		cameraSize.SetCameraSize(defaultCameraSize);
 		//コールバック設定
 		if (detector) {
@@ -32,14 +34,14 @@ public class TargetingCamera : MonoBehaviour {
 
 	#region Callback
 
-	private void OnObjDetect(STGObj obj) {
+	private void OnObjDetect(ObjectAttribute attr, STGObj obj) {
 		int count = detector.GetDetectCount();
 		if (count > 0) {
 			cameraSize.SetCameraSize(detector.GetDetectAreaSize() + addSize);
 		}
 	}
 
-	private void OnObjRelease(STGObj obj) {
+	private void OnObjRelease(ObjectAttribute attr, STGObj obj) {
 		int count = detector.GetDetectCount();
 		if (count == 0) {
 			cameraSize.SetCameraSize(defaultCameraSize);

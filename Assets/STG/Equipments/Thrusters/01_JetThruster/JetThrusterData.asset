@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67078e68e8d7d4015ad2124f30e20742, type: 3}
+  m_Name: JetThrusterData
+  m_EditorClassIdentifier: UnityEngine:UnityEngine:ScriptableObject
+  nickname: JetThruster
+  description: "\u65B0\u578B\u306E\u71C3\u6599\u3092\u642D\u8F09\u3057\u305F\u63A8\u9032\u5668"
+  equipment: {fileID: 114000011828992956, guid: fa0bfe7d3ac284d4eafa08d104cede45,
+    type: 2}
