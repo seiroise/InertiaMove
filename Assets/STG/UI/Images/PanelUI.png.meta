@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 80ddb0386a28f45628a0ef2ce8aa6d24
-timeCreated: 1491700234
+timeCreated: 1491709231
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -64,6 +64,12 @@ TextureImporter:
     21300114: WindowUI_27
     21300116: WindowUI_28
     21300118: WindowUI_29
+    21300120: PanelUI_0
+    21300122: PanelUI_1
+    21300124: PanelUI_2
+    21300126: PanelUI_3
+    21300128: PanelUI_4
+    21300130: PanelUI_5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -174,7 +180,7 @@ TextureImporter:
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 12, y: 4, z: 12, w: 12}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
@@ -499,7 +505,85 @@ TextureImporter:
         height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 10, y: 10, z: 1, w: 1}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PanelUI_0
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 32
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 1, y: 1, z: 10, w: 10}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PanelUI_1
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 0
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 1, y: 10, z: 10, w: 1}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PanelUI_2
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 32
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 10, y: 1, z: 10, w: 10}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PanelUI_3
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 0
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 10, y: 10, z: 10, w: 1}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PanelUI_4
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 24
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 1, y: 10, z: 10, w: 10}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PanelUI_5
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 24
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 10, y: 10, z: 1, w: 10}
       outline: []
       tessellationDetail: 0
     outline: []

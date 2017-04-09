@@ -8,7 +8,11 @@ namespace STG.Obj.DataObj {
 	/// </summary>
 	public class STGDataObj : ScriptableObject {
 
-		public string nickname;		//あだ名
-		public string description;	//説明
+		[SerializeField]
+		private string _nickname;
+		public string nickname { get { return _nickname; } }
+		[SerializeField]
+		private string _description;
+		public string description { get { return _description; } }
 	}
 }

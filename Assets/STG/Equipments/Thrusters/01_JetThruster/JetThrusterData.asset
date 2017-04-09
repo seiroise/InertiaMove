@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67078e68e8d7d4015ad2124f30e20742, type: 3}
   m_Name: JetThrusterData
   m_EditorClassIdentifier: UnityEngine:UnityEngine:ScriptableObject
-  nickname: JetThruster
-  description: "\u65B0\u578B\u306E\u71C3\u6599\u3092\u642D\u8F09\u3057\u305F\u63A8\u9032\u5668"
-  equipment: {fileID: 114000011828992956, guid: fa0bfe7d3ac284d4eafa08d104cede45,
-    type: 2}
+  _nickname: "\u30B8\u30A7\u30C3\u30C8\u30B9\u30E9\u30B9\u30BF"
+  _description: "\u65B0\u578B\u6A5F\u69CB\u3092\u7528\u3044\u305F\u52B9\u7387\u306E\u826F\u3044\u63A8\u9032\u5668"
+  _prefab: {fileID: 114000011828992956, guid: fa0bfe7d3ac284d4eafa08d104cede45, type: 2}
+  _appearance: {fileID: 0}
