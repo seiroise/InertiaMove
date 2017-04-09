@@ -3,11 +3,71 @@ guid: 80ddb0386a28f45628a0ef2ce8aa6d24
 timeCreated: 1491700234
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: WindowUI_02_0
+    21300002: WindowUI_02_1
+    21300004: WindowUI_02_2
+    21300006: WindowUI_02_3
+    21300008: WindowUI_02_4
+    21300010: WindowUI_02_5
+    21300012: WindowUI_02_6
+    21300014: WindowUI_02_7
+    21300016: WindowUI_02_8
+    21300018: WindowUI_02_9
+    21300020: WindowUI_02_10
+    21300022: WindowUI_02_11
+    21300024: WindowUI_02_12
+    21300026: WindowUI_02_13
+    21300028: WindowUI_02_14
+    21300030: WindowUI_02_15
+    21300032: WindowUI_02_16
+    21300034: WindowUI_02_17
+    21300036: WindowUI_02_18
+    21300038: WindowUI_02_19
+    21300040: WindowUI_02_20
+    21300042: WindowUI_02_21
+    21300044: WindowUI_02_22
+    21300046: WindowUI_02_23
+    21300048: WindowUI_02_24
+    21300050: WindowUI_02_25
+    21300052: WindowUI_02_26
+    21300054: WindowUI_02_27
+    21300056: WindowUI_02_28
+    21300058: WindowUI_02_29
+    21300060: WindowUI_0
+    21300062: WindowUI_1
+    21300064: WindowUI_2
+    21300066: WindowUI_3
+    21300068: WindowUI_4
+    21300070: WindowUI_5
+    21300072: WindowUI_6
+    21300074: WindowUI_7
+    21300076: WindowUI_8
+    21300078: WindowUI_9
+    21300080: WindowUI_10
+    21300082: WindowUI_11
+    21300084: WindowUI_12
+    21300086: WindowUI_13
+    21300088: WindowUI_14
+    21300090: WindowUI_15
+    21300092: WindowUI_16
+    21300094: WindowUI_17
+    21300096: WindowUI_18
+    21300098: WindowUI_19
+    21300100: WindowUI_20
+    21300102: WindowUI_21
+    21300104: WindowUI_22
+    21300106: WindowUI_23
+    21300108: WindowUI_24
+    21300110: WindowUI_25
+    21300112: WindowUI_26
+    21300114: WindowUI_27
+    21300116: WindowUI_28
+    21300118: WindowUI_29
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -29,7 +89,7 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
+    filterMode: 0
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -51,7 +111,397 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: WindowUI_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 208
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 12, y: 12, z: 12, w: 12}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WindowUI_1
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 208
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 12, y: 12, z: 12, w: 12}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WindowUI_2
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 208
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WindowUI_3
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 208
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WindowUI_4
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 208
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WindowUI_5
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 208
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 12, y: 12, z: 12, w: 4}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WindowUI_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 136
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 12, y: 4, z: 4, w: 12}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WindowUI_7
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 136
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 4, z: 12, w: 12}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WindowUI_8
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 136
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 12, y: 12, z: 12, w: 12}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WindowUI_9
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 136
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 12, y: 12, z: 12, w: 12}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WindowUI_10
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 136
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 12, y: 12, z: 12, w: 12}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WindowUI_11
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 136
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 12, y: 12, z: 12, w: 12}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WindowUI_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 12, y: 4, z: 12, w: 12}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WindowUI_13
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 12, y: 12, z: 12, w: 4}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WindowUI_14
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 4, z: 12, w: 12}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WindowUI_15
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 12, y: 4, z: 4, w: 12}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WindowUI_16
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 16, y: 16, z: 16, w: 16}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WindowUI_17
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 16, y: 16, z: 16, w: 16}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WindowUI_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 42
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WindowUI_19
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 10
+        width: 24
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WindowUI_20
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 10
+        width: 24
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 12, y: 24, z: 12, w: 10}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WindowUI_21
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 32
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 1, y: 0, z: 24, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WindowUI_22
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 24
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WindowUI_23
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 24
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 24, z: 0, w: 1}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WindowUI_24
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 32
+        width: 42
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WindowUI_25
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 32
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 10, y: 1, z: 1, w: 10}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WindowUI_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 42
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 10, y: 12, z: 24, w: 12}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WindowUI_27
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WindowUI_28
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 0
+        width: 42
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 10, y: 0, z: 24, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: WindowUI_29
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 0
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 
